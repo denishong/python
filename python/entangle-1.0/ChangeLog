@@ -1,0 +1,2731 @@
+2017-10-10  Daniel P. Berrange  <berrange@redhat.com>
+
+	Don't enable -Werror by default
+
+	Ignore entangle.pot file
+
+	Update po files from zanata
+
+	Remove glade annotations for .ui files
+	xgettext no longer requires the magic annotations for file
+	types.
+
+	Fix release date for 1.0
+
+	Update NEWS for 1.0 release
+
+	Don't set subtitle on window
+	GTK recommendation is to not put application name in the window
+	title. Just put the camera model as the window title.
+
+	Set actions for capture/preview/cancel buttons
+
+	Add shortcuts help overlay support
+
+2017-10-04  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add keyboard accelerators
+
+	Update copyright date to 2017
+
+	Set camera model in header bars
+
+	Fix removal of photobox menu
+
+2017-10-01  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix photobox to work with new UI layout
+
+2017-09-21  Daniel P. Berrange  <berrange@redhat.com>
+
+	Switch over to meson build system
+
+2017-09-11  Daniel P. Berrange  <berrange@redhat.com>
+
+	Tweak to spacing in supported cameras dialog
+
+	Ensure plugin panel expands to fill dialog
+
+	Ignore the build/ directory
+
+	Enable close button for about dialog
+
+	Switch over to using the header bar model
+	Remove the menubar entirely and add a header bar with drop down
+	menus.
+
+	Don't try to scroll session browser if not realized
+
+	Delay realization of window
+	Realizing the window in the constructor breaks setup of the
+	applicaton menu for unknown reasons.
+
+	Add custom application menu
+
+	Pass application into camanager manager constructor
+
+	Remove unused entangle window helper code
+
+	Convert manager window to widget template system
+
+	Convert preferences window to widget template system
+
+	Convert media popup window to widget template system
+
+	Convert about dialog to widget template system
+
+	Convert camera support to widget template system
+
+	Convert camera picker to widget template system
+
+	Manually build the session browser menu
+
+	Switch to compiling UI files into binary
+
+2017-09-06  Daniel P. Berrange  <berrange@redhat.com>
+
+	Move preferences dialog handling into app.
+
+	Switch over to using actions instead of signals
+	Switch the main camera window to use actions instead of
+	signals.
+
+	Add missing cairo restore in session browser
+
+2017-09-03  Daniel P. Berrange  <berrange@redhat.com>
+
+	Emit popup-close event correctly
+
+	Update min gtk in UI files to 3.10 and remove deprecated boxes
+
+2017-08-25  Daniel P. Berrange  <berrange@redhat.com>
+
+	Update news for 0.7.2 release
+
+2017-08-19  Daniel P. Berrange  <berrange@redhat.com>
+
+	Use %global instead of %define
+
+	Add eclipse plugin to RPM
+
+	Add plugin for capturing eclipse corona during totality
+	Specify which ISO level and aperture is being used. The plugin
+	then determines the range of shutter speeds to be used to
+	capture the solar eclipse corona during totality.
+
+	Adapt to escaped URI scheme
+	Originally gphoto2 gvfs URIs looked like
+
+	   gphoto2://[usb:003,012]/
+
+	But on Fedora 25 or later they are escaped
+
+	   gphoto2://%5Busb%3A003,012%5D/
+
+	so we must check both formats
+
+	Remove leftover debug messages
+
+2017-08-04  Daniel P. Berrange  <berrange@redhat.com>
+
+	Ignore more files
+
+	Fix test for symbolic icon theme
+
+	Add check on gstreamer plugins base for gstvideo
+
+2017-08-03  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix size of overlay to re-show scroll bars
+
+	Add ability to enter IP addr of network camera
+
+	Disable unsafe loop optimizations warning
+
+	Set new bug reporting address
+
+2017-05-17  Daniel P. Berrange  <berrange@redhat.com>
+
+	Set a size request on the settings viewport
+	Avoid warnings about settings viewport scrollbars:
+
+	(entangle:4803): Gtk-WARNING **: Allocating size to
+	GtkScrolledWindow 0x5563b057f200 without calling
+	gtk_widget_get_preferred_width/height(). How does
+	the code know the size to allocate?
+
+	Fix motion-notify event return value
+	The motion-notify event needs to return gboolean FALSE
+	value to ensure other event handlers run. This bug
+	prevent dragging of the main window, when built with
+	-fstack-protector
+
+	Fix spec file for file renames
+
+	Fix docs for file renames
+
+	Avoid gtk_menu_popup deprecated function
+
+	Avoid gtk_show_uri deprecated function
+
+	Avoid deprecated GDK monitor functions
+
+	Remove check for DBus GLib binding
+	The need for DBus was removed when HAL support was dropped:
+
+	commit fc1e48d16a2d8fb084ea3549082a0bd5f680b614
+	Author: Daniel P. Berrange <dan@berrange.com>
+	Date:   Sun Nov 20 19:31:31 2011 +0000
+
+	    Remove HAL support & make peas/introspection compulsory
+
+2017-05-17  Matteo F. Vescovi  <mfvescovi+gitlab@gmail.com>
+
+	Extend GNOME icon check to Adwaita theme
+	The Adwaita icon theme now includes symbolic icons, so there is
+	no need to use the GNOME symbolic icon theme. Leave the check
+	present for people not using Adwaita though.
+
+2016-07-12  Daniel P. Berrange  <berrange@redhat.com>
+
+	Remove signal handler callbacks from class structs
+	The signal handler callbacks in class structs serve
+	no useful purpose, so delete them.
+
+	Remove prototypes for non-existant methods
+
+2016-07-11  Daniel P. Berrange  <berrange@redhat.com>
+
+	Ensure session browser scrolls to right fully
+	When scrolling to the right we must not only add the item size,
+	but also twice the margin, to ensure we scroll over the full
+	extent of the adjustment.
+
+	Ensure highlight always has at least 1 pixel visible
+	When highlighting square format images the highlight won't
+	be visible ensure we allow a 1 pixel border.
+
+2016-07-03  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add support for loading videos in session
+	When scanning files to add to session use the mime type to pick
+	files, instead of the file extension. Allow image/* and video/*
+	as valid files
+
+	Introduce EntangleVideo class
+	Introduce a new media subclass for representing video files.
+	It can be backed by a video file, or a dynamically created
+	source using GStreamer.
+
+	Draw symbolic icons for video/image files in session browser
+	Prior to the real pixbuf being available, draw symbolic icons
+	in the session browser to represent video/image files.
+
+	Don't try to get status if no media is present.
+
+	Generalize camera manager to deal with media files
+	Remove assumption that current media is always an image
+	from the camera manager. It now deals with any media
+	file types.
+
+	Generalize session browser to deal with media files
+	Generalize the session browser API so that it works in terms
+	of EntangleMedia objects instead of EntangleImage. Non-image
+	objects are just rendered blank.
+
+	Rename EntangleImagePopup to EntangleMediaPopup
+	The image popup class can trivially support any type of media
+	so rename it to EntangleMediaPopup.
+
+	Rename EntangleImageStatusbar to EntangleMediaStatusbar
+	Metadata is associated with the EntangleMedia base class,
+	so the image statusbar can trivially be renamed to cope
+	with any type of media.
+
+	Generalize EntangleSession to deal with media files
+
+	Generalize EntangleImage class to create EntangleMedia
+	Prepare for support of videos by creating a base class
+	for media files.
+
+	Remove auto drawer class in favour of Gtk built-in widgets
+	GTK 3.10 includes the GtkOverlay and GtkRevealer widgets
+	which obsolete the need for the custom auto-drawer / overlay
+	widgets.
+
+	Use GdkSeat APIs for getting pointer where available
+
+	Remove invalid transfer mode annotation
+
+	Remove bogus return value annotation from camera class
+
+2016-02-21  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix typo in release NEWS
+
+	Add dep on libpeas-loader-python3
+
+	Updates to 0.7.1 release
+
+	Refresh translations from Zanata
+
+2016-02-10  Daniel P. Berrange  <berrange@redhat.com>
+
+	Draw symbolic icons for video/image files in session browser
+	Prior to the real pixbuf being available, draw symbolic icons
+	in the session browser to represent video/image files.
+
+	Handle setting of NULL image in image display
+	The set_image_list method correctly handled NULLs, but the set_image
+	method would get things wrong trying to set an image list containing
+	a single element instead of zero elements.
+
+	Refresh image statusbar labels immediately
+	Don't wait for the 'metadata' property to be notified when setting
+	the media for the statusbar - if the metadata is already loaded,
+	this signal will never arrive. So always set the labels immediately
+
+	Fix bounds check in session browser key press
+	When processing right key press check boundary condition
+	so we don't move selection past the last item
+
+2016-01-04  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix deselecting current image when it is deleted
+	Process the 'image removed' signal even when it reports NULL
+	for the selected image, since we must de-select the current
+	image if the last image is deleted.
+
+	Rewrite session browser to dynamically size
+	Remove all remaining traces of cell layout infrastructure
+	and directly render images from the session data model.
+	Dynamically scale the images to fill the available height
+	using cairo for scaling at time of render.
+
+	Switch to generating 256 pixel large thumbnails
+	128 pixel "normal" thumbnails are just too small with modern
+	hidpi displays
+
+	Keep images in session sorted by last modified
+
+	Make nikon fine focus step size smaller
+	At a value of 4 a D90 often reports
+
+	  "Nikon manual focus stepping too small"
+
+	So pick 8 as fine step size.
+
+	Trivial indent fix
+
+	Flush events after capturing
+	If we don't flush events after capturing, then when in preview
+	mode we never process outstanding events. This leads to old
+	camera events arriving when we stop preview mode, which can
+	mistakenly cause gphoto to start preview again !
+
+	Fix error reporting when saving camera controls
+
+	Get rid of ENTANGLE_ERROR macro
+
+	Render image status overlay partially transparent
+
+	Remove style override from overlay box
+
+	Remove gtk_adjustment_changed calls
+	The gtk_adjustment_changed() method is called automatically by
+	GTK when neccessary, so don't call it manually.
+
+	Remove style context override in session browser
+	With the dark theme, the default style matches what we need so
+	don't override the style context. This avoids hitting deprecated
+	GTK functions.
+
+	Remove unused 'wait' function from shooter plugin
+
+	Specify versions when importing libs
+
+	Switch to use gdk_cursor_new_for_display
+	gdk_cursor_new_for_display() is preferred over gdk_cursor_new()
+	which is now deprecated
+
+	convert to use GTask instead of GSimpleAsyncResult
+	GSimpleAsyncResult has been deprecated in recent GIO, so
+	switch over to use GTask internally.
+
+2015-05-10  Pascal Mons  <pascal_mons@hotmail.com>
+
+	Misc fixes to the help docs
+	Fix spelling errors and use capitalization of all
+	nouns/verbs in titles.
+
+2015-03-18  Daniel P. Berrange  <berrange@redhat.com>
+
+	Explicitly link to backend library for strict linkers
+
+2015-03-17  Daniel P. Berrange  <berrange@redhat.com>
+
+	Updates for 0.7.0 release
+
+	Update translations from zanata
+
+	Add autoconf make for dealing with patches to configure/Makefiles
+
+	Add itstool and gtk-doc to RPM deps
+
+	Remove unused variable
+
+2015-03-13  Daniel P. Berrange  <berrange@redhat.com>
+
+	Update repo url to gitlab.com
+
+2015-03-12  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add further help manual pages
+
+	Remove left over reference to progress bar
+
+	Replace progress bar with a spinner
+	The progress bar in latest GTK does not render in a way
+	that is attractive in the toolbar. In addition file downloads
+	are fast enough that detailed progress info is not really
+	needed. It is sufficient to just use a spinner button to
+	show the user that an operation is taking place.
+
+2015-03-11  Daniel P. Berrange  <berrange@redhat.com>
+
+	Introduce plugin for repeated shooting sequences
+	Add a 'shooter' plugin which allows shooting to be repeated
+	in a sequence with an optional gap between shots.
+
+	Add workaround for gphoto camera busy problems
+	After downloading and/or deleting files, it is often not
+	possible to capture / preview an image right away, as the
+	camera reports busy. Add a 100ms sleep to give it time to
+	come back to life. This should really be fixed in gphoto
+	and reverted here later.
+
+	Add a simplified script class to help non-C plugins
+	The gobject introspection based languages have problems
+	with propagating GErrors to & from the C layer, as well
+	as dealing with the async ready callbacks. Introduce a
+	simplified script class that avoids these problems.
+	This relies on GTask introduced in glib 2.36
+
+	Add framework for scripting capture operations
+	Add a new EntangleScript class to be used for scripting the
+	capture of images on the camera. The EntangleScriptConfig
+	class provides user interface for configuring scripts.
+
+	Switch to using a shared library instead of static
+	When linking to static convenience libraries, the linker will
+	drop any .o files which are not referenced in the final
+	executable. This is despite the fact their symbols may be
+	exported for using by dynamically loaded plugins. Switch to
+	using a shared library so all code is guaranteed to be kept
+	available.
+
+	Remove duplicated compiler flags when linking
+
+2015-03-08  Daniel P. Berrange  <berrange@redhat.com>
+
+	Introduce a yelp application manual
+
+	Update copyright dates
+
+	Set default window icon for application
+
+2015-03-06  Daniel P. Berrange  <berrange@redhat.com>
+
+	Switch from transifex to zanata for managing translations
+	To update
+
+	  # cd po
+	  # rm entangle.pot
+	  # make entangle.pot
+	  # zanata push
+	  # zanata pull
+
+2015-03-04  Daniel P. Berrange  <berrange@redhat.com>
+
+	Import new logo files
+	Bug #22528
+
+2015-02-05  Daniel P. Berrange  <berrange@redhat.com>
+
+	Updates for 0.6.1 release
+
+	Refresh translations from transifex
+
+	Add keywords to desktop & appdata files
+
+	Revert "Fix capture during live view"
+	This reverts commit 7af569be4ff35c4ca340c58878ee88a48beca910.
+
+	Revert to old behaviour, because disabling live view before capture
+	breaks ability to use manual focus :-(
+
+2014-11-27  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix photobox plugin for recent widget name changes
+
+	Fix capture during live view
+	When the capture target is set to "memory card" an "PTP busy" error
+	will be received when trying to capture an image while live view is
+	active. Workaround this by explicitly disabling live view when
+	capturing an image, instead of letting gphoto do this for us.
+
+	Workaround gphoto bug detecting changed value for viewfinder.
+
+	Avoid memory leak when waiting for camera events
+
+2014-11-07  Daniel P. Berrange  <berrange@redhat.com>
+
+	Prevent over exposure of raw files
+	Disable libraw auto brightness feature which totally overexposes
+	dark images like deep sky shots.
+
+2014-10-23  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix ordering of restoring controls to honour preferences
+
+	Make the control panel editable
+	Add a button with a popup menu to allow the list of controls
+	to be changed.
+
+	Rip out layout cruft from session browser that confused GTK
+	The session browser re-layout code was causing problems with
+	rendering in GTK resulting in major UI problem. Rip it all
+	out since it didn't appear to have any beneficial purpose.
+
+	Allow camera picker to show more than one line at a time.
+
+	Remove use of GtkMisc APIs
+
+	Remove code to disable double buffering
+	GTK3 basically needs to have double buffering turned on all the
+	time, so don't disable it.
+
+	Convert float to double
+	Floats are promoted to doubles when passed to var-args, so remove
+	the explicit casts to float in favour of double.
+
+	Rewrite condition to avoid gcc signed overflow warnings
+
+	Import new manywarnings.m4 module from gnulib
+
+	Skip -Wbad-function-cast warning
+	GLib triggers warning
+
+	warn.c: In function ‘foo’:
+	warn.c:7:385: warning: cast from function call of type ‘long unsigned int’ to non-matching type ‘void *’ [-Wbad-function-cast]
+	 if (g_once_init_enter (&initialization_value))
+
+	but this cast is entirely expected and harmless so we should not
+	warning on this.
+
+	Fix some syntax check errors with tabs and for loops
+
+2014-10-05  Daniel P. Berrange  <berrange@redhat.com>
+
+	Introduce per-camera model preferences to record control UI
+	To prepare for customizable control panels, introduce a camera
+	preferences object that will be created once per model name.
+
+	Rewrite control panel to not suck so much
+	Instead of adding all camera controls by default, only add a
+	small useful set (aperture, shutter, iso, white balance, quality
+	and image size).
+
+	Require GTK 3.4
+
+2014-10-04  Daniel P. Berrange  <berrange@redhat.com>
+
+	Strip trailing '2' from widget labels
+	Some settings have multiple widgets and gphoto adds a trailing '2'
+	so strip this off.
+
+	Make entangle_control_group_get_by_path recursive
+	Ensure that entangle_control_group_get_by_path can find child
+	widgets to arbitrary depth by making it recursive
+
+	Set a more sensible min height for histogram
+
+	Move preferences object into the frontend
+	The preferences are inherantly related to the user interface so
+	should be part of the frontend codebase.
+
+	Avoid adding the same plugin to preferences multiple times
+
+2014-10-01  Daniel P. Berrange  <berrange@redhat.com>
+
+	Refactor camera operation out into a new automata object
+	To facilitate its use in scripts, pull the code for controlling
+	camera capture/preview out into a separate automata object.
+
+2014-09-30  Jehan  <jehan@girinstud.io>
+
+	Support of freedesktop's Thumbnail Management Standard.
+
+	Add electronic shutter sub-option to continuous preview mode.
+
+2014-09-29  Jehan  <jehan@girinstud.io>
+
+	Minor configure bug on gio dependency check.
+
+2014-09-21  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add missing capture icons to Makefile.am
+
+2014-09-19  Jehan  <jehan@girinstud.io>
+
+	Fix support for VPATH builds
+
+2014-05-02  Daniel P. Berrange  <berrange@redhat.com>
+
+	Updates for 0.6.0 release
+
+	Refresh translations from transifex
+
+	Update to comply with latest appdata specs
+	See
+
+	http://blogs.gnome.org/hughsie/2014/05/02/appdata-meet-spdx-spdx-meet-appdata/
+
+2014-05-01  Daniel P. Berrange  <berrange@redhat.com>
+
+	The plugin schemas can be shipped pre-compiled in the RPM
+	Since the plugin schemas are in a private directory they
+	are ok to ship pre-compiled
+
+	Add a BR in RPM for the symbolic icon theme
+
+	Fix typos in docs
+
+	Adjust pkg-config check for symbolic icon theme
+	Older versions of the GNOME symbolic icon theme don't include
+	a pkg-config file, so make the configure check fall back to
+	looking for a specific file
+
+	Disable progress display in preview mode
+	The PTP driver for Canon EOS activates the progress meter when
+	downloading preview images. This causes the display to flicker
+	madly during preview.
+
+	Try to ignore progress updates when preview mode is active, but
+	still display when downloading the final captured image
+
+	Fixes bug #21246
+
+	Finish off the rest of the API docs
+
+	Ignore more non-version controlled files
+
+	Temporarily disable syncing camera clock
+	Due to unresolved problems relating to timezone handling,
+	disable the feature for syncing the camera clock from the
+	computer.
+
+	Related bug #20430
+
+2014-04-23  Daniel P. Berrange  <berrange@redhat.com>
+
+	Make manual focus work with Canon cameras
+	Canon cameras don't have an arbitrary delta for manual focus,
+	just 3 discrete step sizes. Change the internal API to use
+	discrete step sizes for both Canon and Nikon to give a consistent
+	approach.
+
+	Include port/model in debug when adding cameras
+
+	Fix bug opening extra window at startup
+
+	Use install-data-hook instead of install-data-local
+	The schema must only be compiled after it is installed, so
+	we must use install-data-hook which runs after install-data-am
+
+	Fix install of schemas for plugin
+
+	Port over to use lcms2 instead of lcms
+	Support for lcms 1.x is dropped entirely since lcms2 has
+	been around for long enough now - as long as GTK3 which
+	we also require.
+
+2014-04-14  Daniel P. Berrange  <berrange@redhat.com>
+
+	Remove duplicated plugin files in RPM spec
+
+	Move icons into standard directory location
+	For GNOME software center, the icon listed in desktop file must
+	be in a standard directory location
+
+	  https://github.com/hughsie/createrepo_as/blob/master/README.md#guidelines-for-applications
+
+	Move all the icons into the standard "hicolor" icon theme so we
+	can remove custom code for loading them too.
+
+	Fixes bug #21904
+
+	Fix incorrect whitespace around brackets
+
+	Remove capture/preview icons no longer required
+	Since switching to the symbolic icon theme, the custom
+	capture/preview icons are no longer needed.
+
+2014-04-11  Bastien Nocera  <hadess@hadess.net>
+
+	Use the GNOME symbolic icon theme
+	The symbolic icons look better in combination with the
+	dark style theme.
+
+	Use a dark theme
+	The dark theme is for media applications, such as photo and video
+	apps. We're one of those.
+
+2014-04-11  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add API docs for pixbuf classes
+
+	Add explicit method for setting capture target
+
+2014-04-07  Daniel P. Berrange  <berrange@redhat.com>
+
+	Set automake subdir-objects declaration
+	Make newer automake shut up about subdir-objects
+
+	Remove auto-generation of gitignore files
+	The git ignore file generator is not entirely reliable
+	so not worth the trouble of using it.
+
+	Fix name of menubar widget
+	Then menubar was just renamed to 'win-menubar' and the code
+	was not updated.
+
+	Blank out source ID after removing it
+	Avoid removing the same source twice in the auto drawer by
+	blanking out the source ID.
+
+	Update to deal with changed GExiv2 GIR version
+	GExiv2 0.10 changed the GIR version from 0.4 to 0.10
+
+	Fix override of GtkApplication startup method
+	When overriding the startup method the parent impl must be
+	the first thing invoked.
+
+2014-04-05  Daniel P. Berrange  <berrange@redhat.com>
+
+	Don't auto connect to cameras without capture capability
+	Only auto connect to cameras with the capture capability so
+	that we don't connect to simple drivers doing only MTP / disk
+	filesystem access.
+
+	Create a sample plugin for setting up a photobox captive UI
+
+	Remove use of deprecated libpeas APIs
+
+	Add local source dir to plugin search path
+
+	Change to use python3 for plugin language
+	Change the peas plugin loader to use python for the language
+	instead of gjs. This is to open up possibility to use the
+	general python library ecosystem which is broader than the
+	gjs compatible javascript ecosystem. Python3 is chosen instead
+	of Python2 so we can avoid introducing a problem of having to
+	switch python versions later.
+
+	Add entangle_window_get_builder method
+	Add an accessor for getting the GtkBuilder instance associated
+	with a window, to allow plugins to get access to widgets in a
+	fast manner.
+
+	Add names for more widgets in camera manager
+	To make life easier for plugin authors, give names to the key
+	layout widgets i nthe camera manager.
+
+	Set parent on camera error dialog
+	Ensure that the camera error dialog is associated with the main
+	manager window by setting its parent.
+
+	Filter list of supported cameras to only those supporting capture/preview
+	Instead of reporting all cameras known to gphoto2, only report those
+	that support capture or preview capabilities. This removes all those
+	which only support download, since there's not much of interest you
+	can do with those in the application.
+
+	Remove camera manual/about/driver help windows
+	The camera manual/about/driver information reported by libgphoto2
+	isn't really in any kind of user friendly format. It mostly has
+	info that's developer targetted. Remove the UI for showing this
+	information to simplify the UI.
+
+2014-04-03  Daniel P. Berrange  <berrange@redhat.com>
+
+	Don't let preferences popup hold reference to the application
+	When closing the main manager window, delete the prefs widget
+	so it then allows the application to close.
+
+	Revert "Don't let preferences popup hold reference to the application"
+	This reverts commit 5f98d9694827d35c2d85f0b01329c56c3d1fd8dd.
+
+2014-04-02  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix incorrect object type test in camera info popup
+
+	Don't let preferences popup hold reference to the application
+	If we register the preferences popup window with GtkApplication
+	then the main loop will never exit, since we don't ever destroy
+	the prefs window, merely hide / show it.
+
+	Fix whitespace in for() statement
+
+2014-04-02  Jesper Pedersen  <jesper.pedersen@comcast.net>
+
+	Add customizable image background/highlight
+	The use-case is that you want an "opposite" background color against
+	what you are shooting, e.g. white background when shooting using a
+	black backdrop.
+
+2014-04-02  Daniel P. Berrange  <berrange@redhat.com>
+
+	Update copyright date in about dialog
+
+2014-03-28  Daniel P. Berrange  <berrange@redhat.com>
+
+	Workaround for Nikon D5100 camera serial number
+	At least one D5100 has been seen to append 25 zero characters
+	to the serial number, so strip them off.
+
+	Avoid circular updating of controls
+	When loading config from the camera be careful not to trigger
+	a change in the UI which in turn triggers a save to the
+	camera again. Do this by comparing old / new values in the
+	controls. Also avoiding calling save if no controls have been
+	marked dirty. Finally also refresh the list of combo box
+	choices to avoid confusing the UI into triggering an update.
+
+	Remove bogus calls to gp_widget_set_changed
+	The gp_widget_set_value method sets the changed flag
+	on our behalf.
+
+2014-03-26  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix repeated expose events due to auto-drawer
+	Every time  entangle_auto_drawer_set_pinned is called it
+	triggers an expose event. Check whether it is on the right
+	setting before calling it, since we do this in every mouse
+	move event. This reduces CPU usage dramatically.
+
+	Add further debug in various camera operations
+
+	Fix inverted test in range widget updates
+
+	Add further debug logs in camera control code
+
+2014-03-14  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add API docs for image and session classes
+
+2014-02-23  Kashyap Chamarthy  <kashyap.cv@gmail.com>
+
+	README: Fix an inadvertent typos
+	Correct copy+paste mitsake s/libvirt-sandbox/Entangle/ in several
+	places in the README file
+
+2014-02-16  Daniel P. Berrange  <berrange@redhat.com>
+
+	Refresh translations from transifex
+
+2014-02-16  Cristian Marchi  <cri.penta@gmail.com>
+
+	Setup appdata and desktop files for translation
+
+2014-02-05  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add GExiv2 package to g-ir-scanner
+
+2014-02-04  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix off-by-1 in image histogram tables
+	A guchar has 256 possible levels, not 255. The short
+	tables resulted in a buffer overflow which in turn
+	scrambled the linear/logarithmic setting.
+
+	Don't reset basic camera capabilities on disconnect
+	The capture/preview/controls capabilities are populated
+	when we detect the camera ports, so must not be reset
+	when disconnecting from the camera.
+
+	Add ability to auto-sync camera time on connect
+	Add a preference to control whether the camera time
+	will be automatically synchronized with the computer
+	at time of connection
+
+	Fixes bug #20430
+
+	Add menu option to sync camera clock with PC
+	Fixes bug #20430
+
+2014-01-26  Daniel P. Berrange  <dan@berrange.com>
+
+	Conditionalize use of gtk_drag_begin_with_coordinates
+	The gtk_drag_begin_with_coordinates method is only available
+	from GTK 3.10 onwards. Revert to use of gtk_drag_begin for
+	earlier GTK versions.
+
+2014-01-14  Daniel P. Berrange  <dan@berrange.com>
+
+	Remove version number from about dialog
+	Fixes bug #21362
+
+	Add API docs across many frontend classes
+
+2013-12-21  Daniel P. Berrange  <dan@berrange.com>
+
+	Fix GTK-DOC comments in application class
+
+	Switch to using gtk_drag_begin_with_coordinates
+	Remove use of deprecated gtk_drag_begin in favour of
+	gtk_drag_begin_with_coordinates.
+
+	Remove use of deprecated gtk_widget_set_state
+	Use gtk_widget_set_state_flages instead of the deprecated
+	gtk_widget_set_state.
+
+	Remove use of gexiv2_metadata_get_exif_tag_long
+	The gexiv2_metadata_get_exif_tag_long method has moved to a
+	private gexiv2 header file, not for application use. Switch
+	to use gexiv2_metadata_get_iso_speed instead
+
+	Remove use of deprecated functions for setting color
+	Switch to use gtk_widget_override_background_color
+	and gtk_widget_override_color functions for setting
+	status bar colours.
+
+	Remove use of GtkVBox class in control panel
+	Make the control panel class inherit from plain GtkBox
+	instead of the deprecated GtkVBox class.
+
+	Remove use of deprecated stock constants
+	Use plain strings instead of GTK_STOCK constants which
+	are now deprecated
+
+2013-12-15  Daniel P. Berrange  <dan@berrange.com>
+
+	Refresh translations from transifex
+	Ought to remember todo this *before* a new release next time.
+
+	Update for 0.5.4 release
+
+	Keep the progress/cancel toolbar permanently visible
+	The preview API for Canon cameras triggers progress bar
+	updates. Since previews are taken many times a second this
+	causes the progress bar to show/hide very frequently which
+	is unusable. Instead of showing/hiding toolbar controls
+	just keep them visible all the time and tweak sensitivity
+	when required
+
+	Fixes bug: #21246
+
+	Add some API docs with gir annotations
+
+	Fix leak of image when exiting preview mode
+
+2013-11-27  Daniel P. Berrange  <dan@berrange.com>
+
+	Fix bracket whitespace usage
+	Import bracket-spacing.pl script from libvirt for
+	validating the whitespace around brackets and semicolons
+
+2013-11-24  Daniel P. Berrange  <berrange@redhat.com>
+
+	Remove GTK2 compat code
+	Entangle is GTK3 only so we can remove the GTK2 compat code
+	from the auto-drawer related classes.
+
+2013-11-24  Daniel P. Berrange  <dan@berrange.com>
+
+	Move and rename auto-drawer classes
+	Move the auto-drawer classes into the main directory. Change the
+	naming convention to follow normal GTK practice.
+
+2013-11-24  Daniel P. Berrange  <berrange@redhat.com>
+
+	Improve ability to control manual focus
+	Make the , and . key accelerators to very fine grained
+	focus control (64 steps), and allow < and > to do coarse
+	grained focus control (512 steps)
+
+	Fixes bug #21101
+
+	Fix missing break in focus key accelerators
+	The switch block handling key accelerators was missing
+	break statements in the focus code. This focus out was
+	always cancelled out by a focus in.
+
+	Reduce intermediate layer opacity to 30%
+	To prevent previous images being washed out too quickly
+	reduce the opacity of intermediate layers to 30% instead
+	of 50%.
+
+	Fixes bug #21288
+
+	Increase opacity of top level image when onion skinning
+	Make the top level image stand out more by increasing the
+	opacity to 65% instead of 50%.
+
+	Fixes bug #21288
+
+	Remove unused variable in key release handler
+
+2013-11-23  Daniel P. Berrange  <berrange@redhat.com>
+
+	Introduce menu items for capture/preview
+	Add menu items for the capture/preview operations with visible
+	key shortcut accelerators. Remove the hand-crafted shortcut
+	code.
+
+2013-11-19  Jehan  <jehan@girinstud.io>
+
+	Fix onion skinning in preview mode.
+	The dimension of a preview are usually smaller than actual images.
+	We take care of this case by scaling buffers to the same size before
+	display.
+
+	Fixes bug #21254
+
+2013-11-13  Jehan  <jehan@girinstud.io>
+
+	Do not ever set empty tooltips on capture and preview buttons.
+	Fixes bug #21249
+
+	Display the currently selected image when cancelling preview.
+	Currently on preview cancel, the last preview image would keep displayed
+	until you select a thumbnail. Instead let's redisplay the currently
+	selected image directly.
+
+	Also prevent any race condition by not displaying a preview image if the
+	preview mode is already cancelled.
+
+	Fixes bug #21253
+
+	Onion skinning in preview mode should show start at the selected image.
+	Currently onion skinning adds the images *before* the selected one. But
+	in preview mode, it does not make sense. You want to start to layer from
+	the selected one, included.
+
+	Fixes bug #21255
+
+	Switch gexiv2 include to use gexiv2/gexiv2.h
+	The current pkg-config file for gexiv2 adds a cflag
+	of -I$prefix/gexiv2 but this is already broken, since
+	the gexiv2/gexiv2.h file includes other files using
+	a gexiv2/gexiv2-xxxx.h path. As such current releases
+	can only be used if installed in /usr which means the
+	default include path works. Future releases of gexiv2
+	fix the pkg-config file and will require use of
+	gexiv2/gexiv2.h
+
+	Fixes bug #21260
+
+2013-11-01  Daniel P. Berrange  <dan@berrange.com>
+
+	Move connect/disconnect item to dedicated menu
+	Create a top level "Camera" menu and move the "Connect
+	and "Disconnect" items to the new menu.
+
+	Rename all .xml files to .ui
+
+	Make all window classes inherit Gtk classes
+	Instead of having all the entangle window classes inherit
+	from GObject, make them inherit from the Gtk class that
+	corresponds to the type of window in the Gtk Builder file.
+
+	Use a hack whereby the Gtk Builder file primary window
+	class name is replaced by the entangle class name before
+	being loaded. Introduce a EntangleWindow class to handle
+	passing of the GtkBUilder object into the class for init
+	purposes.
+
+2013-10-24  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add an appdata XML file for gnome software center
+	http://people.freedesktop.org/~hughsient/appdata/
+
+2013-08-30  Daniel P. Berrange  <berrange@redhat.com>
+
+	Don't use ::PACKAGE:: in desktop file
+	The executable name is not required to be the same as the autoconf
+	package name, so just hardcode 'entangle' in the desktop file.
+
+	Fix memory leak in generating image thumbnals
+	Fix code for generating thumbnails from raw files to not leak
+	reference count on pixbuf.
+
+	Ensure thumbnail directory exists
+	Before trying to save a thumbnail, ensure the cache directory
+	exists.
+
+2013-08-28  Daniel P. Berrange  <berrange@redhat.com>
+
+	Update for 0.5.3 release
+
+	Add note about release naming scheme
+
+	Hookup to readonly control state changes
+	Connect the frontend controls to the notify::readonly signal
+	to ensure that readonly state changes are propagated to the
+	UI controls
+
+2013-08-27  Daniel P. Berrange  <dan@berrange.com>
+
+	Fix thread safety of control update
+	The refresh of values for controls often runs in background
+	threads. This causes thread safety issues for the GTK controls
+	which connect to signals in this controls.
+
+	Fix variable names in EntangleImage class
+	s/picker/image/ in several methods
+
+	Fix memory leak in pixbuf loader
+	Previous commit fad10008099e015aba3bacc383345a210519bdbd
+	fixed a double unref in one scenario, but introduced a
+	memory leak in another scenario. The unref must be moved
+	inside the 'if (dest == src)' block to fix both problems.
+
+2013-08-24  Daniel P. Berrange  <dan@berrange.com>
+
+	Remove Encoding key from desktop file
+	The Encoding key is no longer required in desktop files, since
+	they are mandated to all use UTF-8
+
+	Fixes bug #20419
+
+	Switch to use gsettings autoconf rule
+	Switch to using the GLIB_GSETTINGS autoconf rule to create
+	the make rules. This adds a '--disable-schemas-compile'
+	arg to configure, which distro packagers should utilize.
+
+	Fixes bug #20223
+
+2013-08-22  Daniel P. Berrange  <berrange@redhat.com>
+
+	Re-position tooltip over items
+	Ensure the tooltip positions itself over the item that it
+	is related to
+
+2013-08-22  Jesper Pedersen  <jesper.pedersen@comcast.net>
+
+	Remove unused adjust_wrap_width method
+	The adjust_wrap_width method in the session browser no
+	longer does anything useful, since the filename was
+	removed. Delete the code.
+
+	Move file name to tooltip
+	To allow more room for the image, remove the filename from
+	the session browser and use a tooltip instead.
+
+2013-08-17  Daniel P. Berrange  <berrange@redhat.com>
+
+	Update to 0.5.2 release
+
+	Remove use of 'document_mode' field in raw file generation
+	LibRaw >= 0.15 has removed the 'document_mode' field, so we must
+	stop using it in Entangle. Fortunately it wasn't doing anything
+	important for us.
+
+	Remove trailing whitespace
+
+	Switch to automatically generated AUTHORS file
+
+	Refresh translations from transifex
+
+2013-08-13  Daniel P. Berrange  <berrange@redhat.com>
+
+	Make metadata query robust to missing metadata
+	To avoid displaying garbage when exif data is unset, change to
+	explicitly query whether the metadata tag is set before asking
+	for the value.
+
+	Ensure camera progress functions run in main thread
+	GTK APIs must only be used from the main thread, so the
+	camera progress functions must use an idle callback to
+	switch to the main thread.
+
+	Skip redraw of items without size allocated
+	In the session browser, it is possible for the item draw
+	routine to be invoked before a width/height has been set.
+	This makes pixman rather unhappy, so skip the drawing
+	operation in this case
+
+	Preserve scrollbar offsets when switching images
+	When cycling back & forth between images when auto-scale is
+	not set, preserve the scrollbar offsets.
+
+	Fix double unref of pixbuf when rotating
+
+	Re-arrange nesting of image display
+	To prevent the image statusbar being resized to fit in the image
+	scrolled window, re-arrange the nesting of image display. This
+	puts the statusbar outside the scrolled window.
+
+	Bug #20429
+
+	Fix args to gtk_grid_attach
+
+2013-08-09  Daniel P. Berrange  <dan@berrange.com>
+
+	Use GtkGrid instead of GtkTable if available
+	For GTK >= 3.2.0 we can use GtkGrid for layout instead
+	of the deprecated GtkTable
+
+	Remove use of deprecated GStaticMutex
+	The entangle_camera_is_mounted method can only be called
+	from the main thread now, so does not need mutex protection.
+
+	Fix enablement of -Werror
+
+2013-07-09  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add README for translators
+	Direct translators towards Transifex
+
+2013-07-08  Daniel P. Berrange  <berrange@redhat.com>
+
+	Refresh translations from transifex
+
+2013-04-24  Daniel P. Berrange  <dan@berrange.com>
+
+	Ensure every event is emitted in main thread
+	Ensure that the pixbuf loader emits events in the main
+	thread, allowing all calls to gdk threads enter/leave
+	to be removed
+
+	Add note about 'h' key for histrogram mode toggle
+
+	Refresh translations from transifex
+
+2013-04-24  Jesper Pedersen  <jesper.pedersen@jboss.org>
+
+	Add support for linear histogram
+	Add a config option to allow switching between liner and
+	logarithmic histrogram rendering
+
+2013-04-09  Daniel P. Berrange  <dan@berrange.com>
+
+	Disable static libraries build
+
+2013-04-09  Simon Booth  <simon.booth@giric.com>
+
+	remove several unused variables. Fix variables initialised twice.
+
+2013-04-02  Daniel P. Berrange  <berrange@redhat.com>
+
+	Remove leftover g_printerr statements
+
+2013-04-01  Daniel P. Berrange  <berrange@redhat.com>
+
+	Refresh translations from transifex
+
+	Apply orientation from EXIF data to images
+	If GTK fails to apply any orientation data from the image file,
+	then fallback to applying orientation data from the exif
+	metadata block
+
+	Set prefs before loading session
+	Starting up the session was loaded before the preferences were
+	applied. Thus, the first image loaded would be processed using
+	the wrong settings.
+
+2013-04-01  Jesper Pedersen  <jesper.pedersen@jboss.org>
+
+	Try to extract preview/thumbnail from raw files
+	The exiv2 data stream doesn't always contain good thumbnails for
+	raw files. Try to extract a preview/thumbnail from the raw file
+	first, then try exiv2, and finally fallback to resizing the main
+	image
+
+	Set sane default values for processing raw files
+	Set some default parameters for libraw so that it processes files
+	using the typical camera defaults. This should give better results,
+	particularly with Canon raw files.
+
+	Ensure check for raw files is case insensitive
+	When checking the filename extension to identify raw files, convert
+	the filename to lowercase first, to ensure the check is case
+	insensitive
+
+	Only import known image extension in the session
+	Instead of importing all files to a session, only import files
+	whose extension is found in a whitelist. This ensures we only
+	get image files loaded
+
+	Fix aperture and shutter speed metadata in status bar
+
+	Split histogram into RGB colour channels
+	Instead of drawing a single histogram for the overall intensity,
+	draw separate graphs for each RGB colour channel. Also draw a
+	small 4x4 grid overlay.
+
+2013-03-12  Daniel P. Berrange  <dan@berrange.com>
+
+	Update for 0.5.1 release
+
+	Refresh translations from transifex
+
+2013-03-02  Daniel P. Berrange  <berrange@redhat.com>
+
+	Refresh translations from transifex
+
+2013-03-02  Cristian Marchi  <cri.penta@gmail.com>
+
+	Add initial Italian translation
+
+	Add missing translation markers on some strings
+
+2013-02-22  Daniel P. Berrange  <dan@berrange.com>
+
+	Add support for manual focus control during preview
+
+	Add support for autofocus during preview
+
+	End preview by toggling viewfinder action
+	If possible, use the view finder control to turn off preview
+	mode, otherwise fallback to cpaturing an image
+
+	Remove left over variable from gphoto 2.5 compat fix
+
+	Remove debug line
+
+	Add method to query if viewfinder control is possible
+
+	Fix previous methods for autofocus/manualfocus/viewfinder control
+
+	Filter control sections when loading instead of displaying
+	Make EntangleCamera filter the sections, instead of the
+	EntangleControlPanel, since some sections are getting formal
+	APIs in the camera class
+
+	Add APIs for viewfinder/autofocus/manualfocus control
+
+2013-02-21  Daniel P. Berrange  <berrange@redhat.com>
+
+	Avoid warnings about deprecated mutex/condition var functions
+	In recent glib2 releases several mutex/condition var functions
+	are deprecated. Add some macro wrappers to avoid the warnings
+
+	Conditionally use new style gphoto callbacks
+	In gphoto >= 2.5 many callbacks changed from 'char *fmt, va_args *'
+	to just 'char *msg'. Conditionally use the right signature based
+	on version
+
+2012-12-16  Daniel P. Berrange  <berrange@redhat.com>
+
+	Update for 0.5.0 release
+
+	Fix man page target name
+
+	Fix docs generation
+
+	Add LibRaw to list of deps in README
+
+	Refresh translations
+
+	Add hack to delete both images when exiting preview
+	Since there is no way to exit preview mode, we must take a
+	shot and then delete it. If the capture mode is raw+jpeg
+	we must take care to delete both images that are captured
+
+	Fix session filename generation to cope with dual-format capture
+	When the camera captures raw+jpeg formats at the same time, both
+	images must be saved with the same filename prefix
+
+	Rewrite overlay display to be more efficient
+	Instead of creating one cairo surface per image and overlaying
+	them during the draw event, overlay the images directly into a
+	single cairo surface.
+
+2012-12-09  Daniel P. Berrange  <berrange@redhat.com>
+
+	Tweak debugging in event logging
+
+	Fix updating of range controls
+	Fix typo which continually reset range controls back to their
+	original value
+
+2012-12-05  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add support for onion skin preferences
+
+	Add ability to render an "onion skin" from a list of images
+	Extend the image display widget to take a list of images. Then
+	render an "onion skin" overlay with partial opacity. In the
+	case of a list with 1 entry, the behaviour is as before.
+
+	Change way image pixbufs are cleared
+	Instead of trying to track which image is used in popups,
+	just make use of the ref counting in the image loader. Add
+	"unload" signals to the image loader to enable detection
+	of when last use is released.
+
+	Sort images by name instead of modified date
+
+	Ensure camera is disconnected on window close/app exit
+	When hiding a camera manager window, disassociate the
+	camera, so it gets closed cleanly, otherwise some Canon
+	cameras will hang.
+
+2012-11-28  Daniel P. Berrange  <berrange@redhat.com>
+
+	Reindent to normalize whitespace
+
+2012-11-22  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix deadlock unmounting camera at startup
+	The startup code should be using gdk_threads_{enter,leave}
+	since we make use of threads. When umounting a camera we
+	entered a recursive main loop. This caused GDK to try to
+	unlock a mutex that was never locked, corrupting mutex
+	state. The result was a later hang next time GDK tried to
+	lock the mutex.
+
+	We can't acquire the mutex in the activate callback, since
+	that can be called from scenarios where the lock is already
+	held. Thus we move our code into the startup method instead
+	and just make activate do a window show.
+
+2012-11-21  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix mistake in function prototype name
+
+2012-09-18  Daniel P. Berrange  <berrange@redhat.com>
+
+	Refresh translations
+
+2012-09-16  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add preference to control use of embedded image preview for raw files
+
+	Load raw files using LibRaw
+	Add support for using LibRaw to load raw files. Use the
+	embedded preview, rather than processing the entire RAW
+	data.
+
+	Add some more comments to thumbnail loader code
+
+2012-09-12  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix typo in man page name
+
+2012-09-06  Daniel P. Berrange  <berrange@redhat.com>
+
+	Update NEWS for 0.4.1 release
+
+	Allow camera to be NULL
+	Re-add 9a977e23d9f399b8ae2afab98cddec0022e5a276 accidentally
+	reverted
+
+	Remove bogus assertion check
+
+	Control histogram height to match default icon panel height
+
+	Use 'src' from finish callback, since priv->camera might be NULL
+	When saving camera controls using an async callback, make sure the
+	callback uses the passed in 'src' parameter instead of relying on
+	priv->camera which may now be NULL
+
+	Allow camera to be NULL in control panel
+
+	Avoid GTK assertion if min=max
+	The GTK range widgets can't cope with the (entirely reasonable)
+	scenario where the min value == max value. Hack a workaround for
+	this by increasing the max value by 1.0 and setting the control
+	readonly instead
+
+2012-09-02  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix unref of cairo surface object in image display
+
+	Add accelerators for menu options
+
+	Add further protection in API calls
+
+2012-09-01  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add man page and a few misc fixes
+	Add a man page based on the one in bug 20061
+
+	Add g_return_if_fail checks to various methods in frontend code
+
+	Remove tabs from previous commit
+
+	Create display of supported camera models
+	Use gphoto to object a list of supported cameras and introduce
+	a new dialog for showing them. Fixes bug #19953
+
+	Remove obsolete GTK 2.x conditionals
+	Since we require GTK >= 3.0, we can remove conditionals based
+	on GTK 2.x
+
+	Fix build on GTK < 3.4
+	The GDK_SCROLL_SMOOTH constant is only available in GTK >= 3.4
+	Bug #19918
+
+	Rename 'index' variable to 'idx' to avoid symbol clash
+	There is a global function called 'index' in some headers, so
+	local variables should not use the same name. Bug #19918
+
+	Change gfloat to gdouble in image display
+	There is some inconsistent use of gfloat vs gdouble in files.
+	Switch to using gdouble in the image display to address this.
+	Bug #20122
+
+	Fix some data types to use the glib variants
+
+	Fix aspect ratio string->double conversion to be locale-indepedent
+	The strtod() function has variable meaning for '.' according to
+	the locale. This caused the aspect ratio conversions to go wrong.
+	Switch to using g_ascii_strtod() instead. Bug #19929
+
+2012-08-31  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add object type checking to all backend public APIs
+
+2012-08-30  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add missing include of locale.h
+
+	Fix memory handling when updating plugins
+
+2012-08-16  Daniel P. Berrange  <berrange@redhat.com>
+
+	Maintain plugin list in preferences & load them on startup
+	Introduce a new preference which stores the list of plugins
+	which are loaded. Use the PeasGtkPluginEngine widget to allow
+	the user to enable/disable plugins
+
+	Load Peas introspection data
+	The Peas library requires that its GObject Introspection metadata
+	is loaded prior to searching for plugins
+
+2012-08-16  Daniel P. Berrange  <dan@berrange.com>
+
+	Add support for displaying an image histogram in the control panel
+	The control panel is changed to be always visible even when no
+	camera is connected. This is to allow it to display the histogram
+	for the selected image
+
+2012-08-12  Daniel P. Berrange  <berrange@redhat.com>
+
+	Don't clear image pixbuf while a popup is still open
+
+	Ensure popup-close signal is always invoked in all code paths
+
+	Fix drag popup when image is already selected
+	If the image was already selected in the session browser, then
+	a drag would not be initialized.
+
+	Use key press handler in session browser
+	If the key release handler is used in session browser for
+	procesing keys, then some parent handler might take action
+	based on the key press event before we get a chance to
+
+	Fix widget leak when closing image popup
+	When the EntangleImagePopup class was unref'd the GtkWindow
+	still remained in existance. Fix this by destroying the window
+	in the popup finalize method
+
+	Fix memory leak when displaying image popup
+	If the image already has an active popup, attempting to display
+	it again will leak a reference count
+
+	Keep toolbar dir in sync with current session dir
+
+	Close all image popups when changing session
+
+	Clear cached image pixbuf when unselecting image
+	When the current image is selected, set its pixbuf to NULL
+
+2012-07-08  Daniel P. Berrange  <dan@berrange.com>
+
+	Ensure RPM builds are verbose
+
+	Add mouse scroll support to session browser widget
+
+	Fix return type of mouse press handler
+
+	Release 0.4.0
+
+	Add missing RPM BR on intltool. Remove duplicate image
+
+	Refresh translations
+
+	Fix syntax check errors
+
+	Add custom icons for capture/preview
+	Introduce custom icons for capture & preview buttons
+
+	Add ability to synchronize shooting between windows
+	Move the 'New window' menu item to a new "Windows" menu,
+	and introduce a "Synchronize windows" menu item to sync
+	capture and preview
+
+	Re-enable drag for popups
+	Re-enable code for D-N-D creation of image popups
+
+	Add popup menu in session browser
+	Add a popup menu in the session browser which can be used for
+	deleteing unwanted images, and opening images in external
+	applications
+
+	Merge 'new session' and 'open session' into 'select session'
+	Since the "Open Folder" widget is capable of creating folders,
+	there is no compelling reason for a separate "New folder"
+	widget. Merge them into one and use a popup menu in the
+	toolbar for selecting folder
+
+	Add grid lines mode quarters
+	Add another grid lines mode splitting the screen into quarters
+
+	Add missing property handling
+	Fix missing property handling for 'img-mask-enabled'
+
+	Enable rendering of focus point / grid lines during preview
+	Honour the preferences for focus point / grid lines during
+	preview mode
+
+	preferences for focus point / grid lines
+	Add preferences to control whether the focus point and grid
+	lines are displayed during preview mode
+
+	Add ability to draw grid lines in image display
+	Enhance EntangleImageDisplay to enable it to rendere a set
+	of grid liens, using various different policies
+
+	Add ability to draw a focus point in the image display
+	Enhance the EntangleImageDisplay widget to render a center
+	focus point square
+
+2012-07-02  Daniel P. Berrange  <dan@berrange.com>
+
+	Add ability to blank screen while capturing images
+	Add a new preference to control screen blanking. If enabled,
+	the screen will be blanked via DPMS Standby mode while the
+	image is captured, and unblanked afterwards. Any mouse or
+	keyboard movement will also unblank the screen early.
+
+	Add APIs for screen blanking via X11 DPMS extension
+
+	Fix two horrible memory leaks of EntangleImage
+	The preview code would leak every single frame captured during
+	preview.
+
+	The browser code would leak every single image in each folder
+	opened
+
+	Update RPM spec to add new images
+
+2012-07-01  Daniel P. Berrange  <dan@berrange.com>
+
+	Fix misc syntax-check problems
+
+	Add missing imageviewer icons
+
+	Rewrite session browser widget
+	Stop playing hacks with the GtkIconView class since it is
+	frequently breaking and does not render in the desired style
+
+	Replace with a custom written widget, derived from the
+	GtkIconView code, but set to only render everything in
+	one single row
+
+	Fix update of mask opacity property
+
+	Fix type of aspect ratio property
+	The aspect ratio property was mistakenly declared as an int
+	instead of a string.
+
+	Don't fill thumbnail edges with black
+	Set thumbnail edges to be transparent to allow widget
+	background colour to show
+
+	Ensure UI updates when aspect ratio preferences are changed
+
+	Allow aspect ratio mask to be toggled on/off more easily
+	Instead of overloading the 'aspect-ratio' preference to '' to
+	signify disabled mask, use an explicit 'mask-enabled' pref.
+	Also allow the key 'm' to toggle it on/off
+
+	Add some key shortcuts for common operations
+	Allow use of keys
+
+	 - 's' - trigger the shutter
+	 - 'p' - toggle 'live view' preview
+	 - 'esc' - cancel the current operation
+
+2012-06-21  Daniel P. Berrange  <dan@berrange.com>
+
+	Fix notification of preference changes
+
+	Add preferences for configuring image mask aspect ratio
+	Add preferences for setting aspect ratio for image mask,
+	and its opacity. Also add UI for controlling it
+
+2012-06-19  Daniel P. Berrange  <dan@berrange.com>
+
+	Extend EntangleImageDisplay to support aspect ratio masks
+	Allow the image display to mask off the borders of the displayed
+	image to simulate cropping to an alternate aspect ratio
+
+2012-04-30  Daniel P. Berrange  <dan@berrange.com>
+
+	Add preference for auto-connect of cameras
+	Allow automatic connection at startup to be disabled via
+	a preference. Also rename 'folders' to 'capture' in glade
+
+	Auto-connect to all cameras on startup
+
+2012-04-25  Daniel P. Berrange  <dan@berrange.com>
+
+	Add support for multiple windows
+
+	Rename EntangleContext to EntangleApplication
+	Nothing in the backend needs to the EntangleContext, so
+	rename it to EntangleApplication and make it subclass
+	GtkApplication
+
+	Move camera list population code out of EntangleContext
+
+	Update file header comments
+
+	Properly use GtkApplication by registering windows
+
+	Add missing impl of entangle_context_get_application
+
+	Update for 0.3.3 release
+
+	Remove tabs & exclude .icc files from whitespace check
+
+	Fix test for glib-compile-schemas
+	We can't assume pkg-config gives us back the fully qualfied
+	path for glib-compile-schemas, it might just be the binary
+	name
+
+	Add new translation files
+
+2012-04-25  Daniel P. Berrange  <berrange@redhat.com>
+
+	Refresh translations
+
+2012-04-16  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add --system arg support to autogen.sh
+
+	Fix compat with glib < 2.32
+
+2012-04-16  Daniel P. Berrange  <dan@berrange.com>
+
+	Re-enable double buffering of image display widget to avoid flickr in preview mode
+
+	Fix construction of session browser
+	The GtkIconView class does certain stuff in a constructor rather
+	than its init method. Thus we need to override the latter to avoid
+	out of order initialization of the icon view parent
+
+	Fix debugging with newer glib which doesn't enable debug by default
+
+	Remove use of deprecated style/size APIs in ovBox
+
+	Replace gtk_main_quit with g_application_quit
+
+	Replace usage of gdk_display_get_pointer API
+
+	Replace gtk_widget_get_pointer API usage
+
+	Replace box with hbox widget
+
+	Replace gdk_cursor_unref with g_object_unref
+
+	Replace vbox with box and hscale with scale widgets
+
+	Remove calls to gdk lock/unlock when running application
+	GtkApplication takes care of automatically locking/unlocking
+	the GDK global mutex when required. Thus we should not be
+	holding the GDK lock when invoking g_application_run
+
+	Replace gdk_pixbuf_unref with g_object_unref
+	Reported-by: Glenn Greenfield <glenn.greenfield@gmail.com>
+
+2012-04-04  Daniel P. Berrange  <berrange@redhat.com>
+
+	Only enable -Werror on builds from GIT
+
+2012-04-03  Daniel P. Berrange  <dan@berrange.com>
+
+	Update for 0.3.2 release
+
+	Refresh translations
+
+2012-04-01  Daniel P. Berrange  <berrange@redhat.com>
+
+	Include translations in RPM
+
+	Refresh translations
+
+	Mark New Session & Open Session menu labels for translation
+
+	Cleanup indentation
+
+2012-04-01  Daniel P. Berrange  <dan@berrange.com>
+
+	Add _(...) around all translatable strings
+
+2012-02-16  Daniel P. Berrange  <dan@berrange.com>
+
+	Mark license & website as non-translatable & refresh po files
+
+2012-02-16  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add transifex configuration file
+
+	Import initial translations
+
+2012-02-15  Daniel P. Berrange  <dan@berrange.com>
+
+	Update git ignore files
+
+	Add missing m4 macros for compile warnings
+
+2012-02-15  Daniel P. Berrange  <berrange@redhat.com>
+
+	Initial pot file
+
+	Import GNULIB syntax check rules
+
+	Add trailing blanks
+
+	Add missing <config.h>
+
+	Remove redundant const
+
+	Add GtkBuilder files to POTFILES.in
+
+	Remove 'the the' typo
+
+	Tweak copyright line
+
+	Update AUTHORS file & set a mailmap
+
+	Set locale at startup
+
+	Death to all TABs
+
+	Add basics for i18n
+
+2012-02-13  Daniel P. Berrange  <dan@berrange.com>
+
+	Release 0.3.1
+
+	Update copyright dates
+
+	Add workaround for missing GSettings schemas during startup
+
+2012-02-12  Daniel P. Berrange  <dan@berrange.com>
+
+	Fix initial control panel sensitivity
+
+	Avoid running multiple event monitoring threads
+
+	Fix thread locking in status bar hide
+
+	Avoid infinite loop of preview errors
+
+	Avoid double-free of GError after connect failure
+
+	Fix some crashes during camera disconnect
+
+	Use a dedicated struct to store task info
+
+2012-02-10  Daniel P. Berrange  <dan@berrange.com>
+
+	Rename async method handlers to use a _finish prefix
+
+	Switch over to GNULIBs compiler warning system
+
+	Fix misc compile warnings
+
+	Fix NULL pointer updating widget sensitivity
+
+	Readd AC_OUTPUT, accidentally removed earlier
+
+	Remove compiled schema file in RPM install
+
+2012-01-11  Daniel P. Berrange  <berrange@redhat.com>
+
+	Update README notes
+
+2011-12-05  Daniel P. Berrange  <dan@berrange.com>
+
+	Add explicit test for glib-compile-schemas & install schemas
+	Add a test for glib-compile-schemas existing, since some people
+	may have the pkg-config file, but not the binary. Also add a
+	warning about the install location
+
+	Cleanup pkg config checks in configure.ac & fix peas variables
+
+2011-12-05  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix crash in handling combo lists where option is NULL
+
+2011-11-28  Daniel P. Berrange  <berrange@redhat.com>
+
+	Update for 0.3.0 release
+
+	Require gphoto2 >= 2.4.11 since earlier versions are buggy
+
+	Remove explicit include of glib/gthread.h
+
+	Rewrite session loading using GIO & filter non-file types
+
+	Add autobuild extra_release in RPM release field
+
+	Fix paths for loading XML builder files
+
+	Switch to automatically generate sections with gtk-doc
+
+	Update news file with info about forthcoming release
+
+2011-11-27  Daniel P. Berrange  <dan@berrange.com>
+
+	Fix thread locking when updating controls
+
+	Workaround 100% cpu burn due to GVolumeMonitor object unref
+
+	Wire up support for refreshing settings from camera
+
+	Make control refresh/load & camera connect/disconnect async
+
+	Don't clear image display when disconnecting camera
+
+	Avoid deadlock on camera disconnect & reset meter
+
+2011-11-26  Daniel P. Berrange  <dan@berrange.com>
+
+	Tweak styling of control panel
+
+	Add preferences for continuous preview & non-delete of files
+
+	Rework the way settings are handled
+	Remove the "picture folder" setting, adding a "last session"
+	parameter which is preserved across restarts. Add setters for
+	all preferences.
+
+2011-11-22  Daniel P. Berrange  <dan@berrange.com>
+
+	Fix deadlock updating controls while progress update is occuring
+
+	Update camera info dialog & remove resize grip
+
+	Change display of control panel
+
+	Fix locking when updating controls
+
+	Remove camera actions and other PTP properties to make UI more practical
+
+	Remove info hint from image display which duplicates metadata display
+
+	Add display of metadata for selected image
+
+	Integrate with GExiv2 to extract metadata
+
+2011-11-20  Daniel P. Berrange  <dan@berrange.com>
+
+	Setup transient window hints
+
+	Remove EntangleAppDisplay class and rename EntangleApp to EntangleContext
+
+	Remove obsolete deps from RPM spec
+
+	Fix leaks in preferences code & initialization of RGB path
+
+	Remove HAL support & make peas/introspection compulsory
+
+	Convert from GConf to GSettings
+
+2011-11-17  Daniel P. Berrange  <dan@berrange.com>
+
+	Fix locking when updating controls
+
+	Change to perform continuous monitoring and expose preview button
+
+	Fix thread safety when creating color transforms
+
+	Fix crash destroying camera object after disconnecting
+
+	Remove camera schedular classes
+
+	Remove camera scheduler from control panel
+
+	Replace use of camera schedular with async calls
+
+	Add async versions of preview/capture APIs & convert tasks to async capture
+
+	Add async variant of camera file delete method & use in tasks
+
+	Don't send preview images through pixbuf loaders
+	* backend/entangle-pixbuf-loader.c: Reject requests to handle
+	  images without a filename
+	* frontend/entangle-camera-manager.c: Don't send preview images
+	  through pixbuf loaders
+
+	Revert 26f0c06dc1d817c2f01e6cc5f09e23636eac44d0
+	Don't set a fake filename for in-memory images
+
+	Remove leftover debug
+
+	Convert camera file download to an async method
+
+	Replace job condition with a job mutex for greater fairness
+
+2011-11-15  Daniel P. Berrange  <dan@berrange.com>
+
+	Fix check for local copy of sRGB.icc
+
+	Make colour profile class threadsafe and avoid crash if loading profile fails
+
+2011-10-10  Daniel P. Berrange  <dan@berrange.com>
+
+	Add mutex locking to EntangleCamera
+	To avoid for safer multithreaded access, introduce a mutex to
+	prevent EntangleCamera. When calling into slow gphoto APIs,
+	drop the mutex, but keep a job lock via a condition variable
+
+	Ensure EntangleImage always has a non-NLL filename
+	To avoid crashes in the pixbuf loader in preview mode, ensure
+	that the image always has a non-null filename
+
+	Add GError arg to entangle_camera_connect
+
+2011-08-22  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add note about the license & source of the logo file
+	The logo was obtained from
+
+	http://www.openclipart.org/detail/20295/camera-lens-by-rg1024-20295
+
+	which Open Clip Art makes available under the public domain
+
+	https://creativecommons.org/publicdomain/zero/1.0/
+
+2011-06-28  Daniel P. Berrange  <dan@berrange.com>
+
+	Convert from Glade to GtkBuilder
+
+	Convert code fromm GTK2 to GTK3
+	Update to replace all APIS removed in GTK2.
+	Replace use of libunique/startup with GtkApplication
+
+2011-02-14  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fixes to ensure it builds when GTK is sealed
+
+2011-02-11  Daniel P. Berrange  <dan@berrange.com>
+
+	Refactor image loading code to allow easier access to pixbuf
+	Directly associate the loaded GdkPixbuf with the EntangleImage
+	object. This allows multiple UI widget to directly access the
+	pixbuf without all of them needing to know about the
+	EntangleImageLoader class. The EntangleCameraManager class
+	is now in charge of loading/unloading the pixbufs
+
+2011-02-04  Daniel P. Berrange  <dan@berrange.com>
+
+	Acquire GDK lock before processing camera disconnect
+	The camera-removed signal is emitted without GDK locks held.
+
+	* frontend/entangle-app-display.c: Hold GDK lock before
+	  disconnecting camera from UI
+
+	Avoid crash on camera disconnect
+	The camera schedular thread make continue to run for a short
+	while after setting the 'quit' flag. Use a condition variable
+	to ensure we wait until it has shutdown before closing the
+	camera
+
+	* backend/entangle-camera-scheduler.c: Wait for thread to finish
+	  before returning
+	* frontend/entangle-camera-manager.c: Release GDK lock before
+	  disconnecting camera to avoid deadlock
+
+2010-10-06  Daniel P. Berrange  <berrange@redhat.com>
+
+	Update to cope with cameras which have no controls
+	Some camera drivers claim to support controls, but then don't
+	return any. This updates the UI code to cope with this situation
+	instead of crashing
+
+	* frontend/entangle-camera-manager.c: Hide controls panel
+	  and disable settings menu/toolbutton if no controls are
+	  available
+	* frontend/entangle-control-panel.c,
+	  frontend/entangle-control-panel.h: Export a property if
+	  there are any visible controls
+
+2010-09-19  Daniel P. Berrange  <dan@berrange.com>
+
+	Remove website which is now hosted under wordpress
+
+2010-09-17  Daniel P. Berrange  <berrange@redhat.com>
+
+	Update for 0.2.0 release
+	* NEWS: Notes about major changes
+	* configure.ac: Update version number
+
+	Update to require libpeas 0.5.5
+	* configure.ac: Update to 0.5.5 peas, s/peas-ui/peas-gtk/
+	* entangle.spec.in: Require libpeas-devel >= 0.5.5
+	* src/backend/entangle-app.c,
+	  src/backend/entangle-app.c: API changes for libpeas 0.5.5
+
+2010-09-15  Daniel P. Berrange  <dan@berrange.com>
+
+	Ensure filename extension is always lowercase
+	Some cameras return an uppercase filename. Convert to lowercase
+	at all times
+
+	Add support for unmounting camera when connecting
+	Use GIO to unmount the camera if it is in use by gvfs.
+
+2010-09-14  Daniel P. Berrange  <berrange@redhat.com>
+
+	Remove EntangleParams class that required GPhoto gir hack
+	The GPhoto-2.0.gir hack is required because EntangleParams
+	exposes some libgphoto2 typedefs in a public struct. By
+	removing this class and moving the objects into the private
+	impl, the GIR hack is no longer required
+
+	Port over to use libpeas for plugins
+	Remove all custom plugin handling code. Replace with (optional)
+	use of libpeas.
+
+2010-07-22  Daniel P. Berrange  <dan@berrange.com>
+
+	Adapt to cope with cameras which don't support events
+	The non-PTP drivers do not support event notifications. Adapt the
+	event flush/wait code to avoid failing in these scenarios, since
+	capture still works fine
+
+2010-07-19  Daniel P. Berrange  <berrange@redhat.com>
+
+	Use GError APis for reporting capture failure
+	Wire up GError for capture, preview, download, delete and event
+	wait operations. Display error to user if task fails. Log all
+	gphoto detailed error messages.
+
+	Fix infinite loop waiting for events
+	Fix an unknown event occurs the loop could potentially go on
+	forever. Track wallclock time to ensure an absolute upper
+	bound on waiting for events
+
+	Set worker to NULL when exiting
+	When the worker thread exits it is important to set priv->worker
+	to NULL to ensure other methods see it is not running
+
+2010-06-13  Daniel P. Berrange  <berrange@redhat.com>
+
+	Make a sane implementation of the preview function
+	Replace the 'cancelled' method on the progress interface, with
+	a GInterface. Add a 'confirmable' GInterface. Re-write the
+	preview task to use the confirmable interface to trigger
+	capture. Fixup exiting of live view when cancelling preview.
+
+	Disable image hint when fullscreen mode
+
+2010-06-07  Thilo Bangert  <thilo@bangert.dk>
+
+	Fix DESTDIR handling in install-data-local rule
+
+2010-06-07  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix assumption about some udev parameters always being present
+	If certain udev parameters were missing (aka NULL) then the
+	device monitor code would crash with a NULL pointer dereference.
+	Ignore any events where one of our desired parameters is NULL
+	to avoid crashing
+
+	Update RPM spec with feedback from Fedora review
+
+2010-04-08  Daniel Berrange  <berrange@localhost.localdomain>
+
+	Add link to download area
+
+	Bump release to 0.1.0 & other release prep work
+	* AUTHORS, NEWS: Fill out basic info.
+	* Makefile.am, gitlog-to-changelog: Setup ChangeLog to be
+	  autogenerated from GIT logs.
+	* configure.ac Bump release to 0.1.0
+
+	Fix tagline in about dialog
+
+	Fix bug in thread locking upon error scenarios
+	When breaking out of the task loop it is neccesary to reacquire the
+	lock.
+
+2010-04-07  Daniel Berrange  <berrange@t500wlan.home.berrange.com>
+
+	Fix hang when changing configuration values
+	The camera schedular thread runs continuously in the background
+	waiting for events. It is thus neccessary to pause this background
+	thread whenever updating a control value in the foreground thread.
+
+2010-04-05  Daniel Berrange  <berrange@localhost.localdomain>
+
+	Add filename labels in session browser & image info popup
+
+	Fix thumbnail orientation
+
+	Fix logic bug that broke thumbnail resizing
+
+	Set widget readonly state on camera controls
+	GPhoto now has an API for discovering whether a camera control
+	is readonly. This can be used to set the GTK widget to be non
+	sensitive
+
+2010-04-04  Daniel Berrange  <berrange@localhost.localdomain>
+
+	Rewrite filename generation code to preserve original extension
+	Rewrite the session filename generation code to preserve the
+	original filename extension as provided by the camera/gphoto.
+	ie stop giving raw files a .jpeg extension !
+
+	Add & ignore GP_EVENT_CAPTURE_COMPLETE to prevent bogus failures
+
+2010-04-02  Daniel Berrange  <berrange@localhost.localdomain>
+
+	Allow presentation mode to set monitor to diplay on
+	The view menu gets popupulated with a list of named monitors in
+	the screen. The presentation mode can be switched between the
+	different monitors. Fullscreen also now hides the menubar
+
+2010-03-31  Daniel Berrange  <berrange@localhost.localdomain>
+
+	Add a real presentation mode
+	Add a real presentation mode where the only thing visible is the image
+	display window, in fullscreen.
+
+	Use proper glib API for finding user pictures directory
+
+	Port to gudev library
+	Use the gudev library for monitoring devices in preference to
+	HAL, where available
+
+	Fix 100% cpu loop on camera disconnect & potential crash
+	When the camera disconnects care must be taken that all camera
+	functions return false and not try to access a NULL gphoto camera
+	object. The background event loop must also check for a disconnected
+	camera and not spin 100% cpu waiting for events that will never
+	arrive
+
+	Fix thread safety in task-end callback & disconnect camera
+	The task-end callback invokes GTK functions and is emitted from
+	a background thread, thus it must be protected by the GDK threads
+	lock.
+
+	When the camera is removed from the camera manager, the camera
+	must be switched to disconnected state
+
+2010-03-30  Daniel Berrange  <berrange@localhost.localdomain>
+
+	Rename Capa -> Entangle
+	Renaming the project from "Capa" to "Entangle". This renames all
+	files with 'capa' in the name, and changes all source code symbols
+	and strings to match.
+
+2010-03-18  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add cast from gsize to int to avoid printf warning
+
+2010-03-15  Daniel P. Berrange  <berrange@redhat.com>
+
+	Readd port property mistakenly removed
+
+2010-03-14  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add initial impl of gconf configuration store
+
+2010-03-13  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add setters/getters for control panel, session browser & camera manager objects
+
+2010-03-12  Daniel P. Berrange  <berrange@redhat.com>
+
+	Remove all unneccessary G_OBJECT casts
+
+	Add getter/setters for image display object properties
+
+	Add setter for camera file mimetype
+
+	Add setters/getters for camera info object
+
+	Add setters/getters to pixbuf loader object
+
+	Add getter & setter for camera progress property
+
+	Standard naming convention for "getters" on camera class
+
+	Cache camera docs to avoid possible thread race condition
+	The gphoto library must only be used from one thread at once for
+	absolute safety, so camera driver/manual/summary strings should
+	be cached just in case
+
+	Fix session changing code
+	The session changing code was setting a property which no longer
+	exists on the camera class
+
+2010-03-06  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix printf format specifier
+
+	Basic framework for new config management system
+	* backend/capa-config-entry.h, backend/capa-config-entry.c: Object
+	  for a single configuration value
+	* backend/capa-config-set.h, backend/capa-config-set.c: Object for
+	  a group of configuration values
+	* backend/capa-config-store.c, backend/capa-config-store.c: Backing
+	  store for all configuration values
+
+2010-02-15  Daniel P. Berrange  <berrange@redhat.com>
+
+	Switch capture/preview/monitor over to scheduler task & rip out old code
+	The old threads code from the camera class is ripped out. The camera
+	manager frontend now triggers all operations via the new camera
+	scheduler object.
+
+	Add progress debug logging on control building process
+
+	Fix typo in object class name
+
+	Camera execution script and task system
+	To make the capture process more flexible, the hardcoded preview,
+	monitor & capture threads need to be moved out of the camera
+	class. This commit introduces a general purpose camera scheduler
+	that runs in a background thread monitoring for events. It then
+	accepts queuing of tasks to execute. Tasks are provided for the
+	basic operations.
+
+2010-02-14  Daniel P. Berrange  <berrange@redhat.com>
+
+	Refactor camera capture routines to prepare for scripts
+	Introduce an explicit object for representing a file on the camera.
+	Separate out methods for capturing, downloading & deleting files
+	from the camera. Rewrite existing background threads to use the
+	new APIs.
+
+2010-01-13  Daniel P. Berrange  <berrange@redhat.com>
+
+	Don't abort monitoring when getting an unexpected event
+
+2010-01-12  berrange  <berrange@dhcp-0-224.camlab.fab.redhat.com>
+
+	Ignore Makefile.am file
+
+2010-01-12  Daniel P. Berrange  <berrange@redhat.com>
+
+	Merge CapaPluginBase into CapaPlugin inteface
+	The CapaPlugin interface was not serving any useful purpose. This
+	change merges the CapaPluginBase abstract class into CapaPlugin
+	removing the interface
+
+2010-01-11  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix gint64 printf format specifier for x86_64
+	Can't assume that gint64 format specific is %llu on x86_64. GLib
+	provides a portable macro G_GUINT64_FORMAT so use that instead.
+
+2010-01-10  Daniel P. Berrange  <berrange@redhat.com>
+
+	Rename all source files added 'capa-' prefix
+	Avoid potential include file namespace problems by adding a 'capa-'
+	prefix to all source files
+
+	Integrate with gtk-doc for API reference generation
+
+	Remove auto-generated INSTALL file
+
+	Move debug variables out of main.c into separate debug.c
+	In order for gtk-doc to link to the library for scanning, it is
+	neccessary to move the debug flags into a separate file.
+
+	Rename some methods in CapaApp and annotate for introspection data
+	The introspection transfer mode was incorrect for methods in
+	CapaApp, so they had to be annotated. The getters are also renamed
+	to add 'get_' prefix.
+
+2010-01-09  Daniel P. Berrange  <berrange@redhat.com>
+
+	Turn off colour profile debugging
+
+2010-01-03  Daniel P. Berrange  <berrange@redhat.com>
+
+	Pass the 'CapaPlugin' instance to the plugin activate methods
+	The plugin may need to know its base directory in order to load
+	other assets such as images. To allow for this, it is neccessary
+	to pass the CapaPlugin instance into the plugin's activate/deactive
+	methods
+
+	Switch UI out of operation mode when camera is removed
+	The current camera may be removed from the manager window while an
+	operation is in progress (particularly when monitoring for new images
+	in the background). In this case it is neccessary to toggle the
+	'inOperation' flag to update the UI
+
+	Remove obsolete, unused 'camera-progress' window definition
+	The camera progress window was removed in a previous commit, the
+	progress display being incorporated into the main manager window.
+	The glade definition of the 'camera-progress' window is thus
+	obsolete & unused.
+
+	Fix crash in background thread when progress monitor is removed
+	When disconnecting the UI from a camera, there may still be a
+	background job active using the progress monitor. Therefore it
+	is neccessary to include checks for NULL on the progress object
+
+	Disconnect camera from display when camera is removed
+	When a camera is removed, and it matches the camera currently opened
+	in the display, it must be removed, disabling the UI.
+
+	Make 'CapaAppDisplay' inherit from 'CapaApp'
+	The plugins get given a handle to a 'CapaApp' instance. By making
+	the CapaAppDisplay type inherit from 'CapaApp', they can get access
+	to the UI objects
+
+	Clarify warning text when camera cannot be connected to
+
+	Fix missing word in camera picker warning message
+	* src/capa.glade: Add missing 'when' in warning message
+
+2009-12-29  Daniel P. Berrange  <berrange@redhat.com>
+
+	Include a relative timestamp in log messages
+
+	Basic UI for plugin preferences / management
+
+2009-12-28  Daniel P. Berrange  <berrange@redhat.com>
+
+	Javascript plugins based on GJS runtime
+
+	Rename GIR data to use initial caps as per GObject standards
+
+	Preliminary plugin script with dlopen()
+
+2009-12-12  Daniel P. Berrange  <berrange@redhat.com>
+
+	Update screenshots to reflect current UI design
+
+2009-12-06  Daniel P. Berrange  <berrange@redhat.com>
+
+	Update the website content to match current reality
+
+	Re-order buttons on toolbar to move important ones to the left
+
+	Merge capture/preview/monitor tool buttons into one
+	Declutter the toolbar slightly by merging the separate buttons for
+	capture/preview/montior into one button with a drop down menu. This
+	will also allow scripts to populate the menu with other options
+	like timed/sequenced shooting
+
+	Pull the progress display into the toolbar instead of popup window
+
+2009-12-05  Daniel P. Berrange  <berrange@redhat.com>
+
+	Misc enhancements to colour management
+	* Auto-rebuild colour transform when preferences change
+	* Fix crash when a profile is NULL
+	* Honour requested rendering intent
+
+	Auto apply any orientation info when displaying images/thumbnails
+
+2009-12-04  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix build ordering dependancy for generated enums
+
+	Remove obsolete comment and class variable
+
+	Introduce an async thumbnail loader
+	Subclass pixbuf loader to provide a thumbnail loader. Attempts to
+	following the thumbnail spec for caching thumbnails
+
+	http://jens.triq.net/thumbnail-spec/index.html
+
+	Pull most of image loader out into a abstract pixbuf loader base
+	Introduce a CapaPixbufLoader base class which does most of the
+	image loading work. This will allow a subclass for doing thumbnail
+	generation/loading to reuse most functionality.
+
+2009-12-02  Daniel P. Berrange  <berrange@redhat.com>
+
+	Integrate with libunique to ensure we're always a single-instance app
+
+	Integrate with startup notification library
+
+	Turn camera manager window into a singleton
+	Always display the camera manager window, even if no camera is
+	present. Fix bugs in disconnecting from camera.
+
+	Automatically connect to the camera if exactly one is found
+	If there is only a choice of one single camera, then we will
+	automatically connect to it when starting up,instead of showing
+	the camera picker dialog.
+
+2009-11-29  Daniel P. Berrange  <berrange@redhat.com>
+
+	Introduce a background image loader for main image display
+	Use a thread pool to load images in the background without blocking
+	the main UI. Wire the thread loader into the main image display
+	panel
+
+2009-11-28  Daniel P. Berrange  <berrange@redhat.com>
+
+	Wire up preferences to GConf for persistent storage
+
+	Apply changes to preferences from editor form
+
+	Add missing ref count in previous commit
+
+	Apply colour profile transform according to configured preferences
+
+2009-11-27  Daniel P. Berrange  <berrange@redhat.com>
+
+	Tiny whitespace tweak
+
+	Create a preferences dialog
+
+2009-11-09  Daniel P. Berrange  <berrange@redhat.com>
+
+	Initial support for ICC profile conversion of images when displayed
+	Adds basic support for applying ICC profiles to captured images
+	when displayed in the main image viewer. Needs to be hooked up
+	to preferences to control rendering intent and ICC filenames
+
+	* capa.spec.in: Add BuildRequires: lcms-devel
+	* configure.ac: Add pkgconfig check for lcms
+	* src/Makefile.am: Add lcms linker/cflags
+	* src/backend/colour-profile.c, src/backend/colour-profile.h: Add
+	  an object for representing a colour profile
+	* src/frontend/camera-manager.c: Quick nasty hack to apply a profile
+
+2009-10-20  Daniel P. Berrange  <berrange@redhat.com>
+
+	Really fix threading issues
+	* src/backend/camera.h, src/backend/camera.c: Add thread funcs
+	  to be registered, and call when emitting signals froma thread.
+	  Remove idle func hack which was useless
+	* src/frontend/camera-manager.c: Register gdk thread funcs with
+	  camera class.
+	* src/main.c: Enter threads before running main loop
+
+	Auto-select latest image in session browser
+	* src/frontend/session-browser.c: Automatically select the latest
+	  image added to list
+
+2009-10-20  Daniel Berrange  <berrange@minilan.home.berrange.com>
+
+	Fix XML comment syntax
+	* src/gphoto-2.0.gir: Fix comment syntax
+
+2009-10-19  Daniel P. Berrange  <berrange@redhat.com>
+
+	Use a server-side pixmap for image display to make expose events fast
+	Rendering directly from a client side pixbuf made for very slow expose
+	events. Use a pixmap to cache the data for fast rendering
+
+	* frontend/image-display.c: Add a pixmap cache
+
+2009-10-19  Daniel Berrange  <berrange@minilan.home.berrange.com>
+
+	Add GObject introspection support
+	* capa.spec.in: Add deps on gobject-introspection-devel,
+	  gir-repository-devel
+	* configure.ac: Check for gobject introspection
+	* src/Makefile.am: Add rules for building tpyelib/gir data
+	* src/main.c: Add --introspect-dump arg
+	* src/gphoto-2.0.gir: Add stub for gphoto2 structs
+
+2009-10-19  Daniel P. Berrange  <berrange@redhat.com>
+
+	Remove all polaroids when closing camera window
+
+2009-10-18  Daniel P. Berrange  <berrange@redhat.com>
+
+	Move capa_session_add call to a idle func to avoid thread safety problem
+
+	Add missing ref count increment on preferences class
+
+	Refresh session browser when changing camera session
+
+	Kill all tabs, mass ident & add emacs magic to prevent their return
+
+	Turn CapaApp into a proper GObject class
+
+	Change to use a toggle button/menu for showing/hiding camera settings
+
+	Wire up new/open session menus/toolbuttons
+
+	Change default filename pattern to JPEG
+
+	Fix session directory creation
+
+2009-10-06  Daniel P. Berrange  <berrange@redhat.com>
+
+	Wire up changes to settings propagating back to camera
+
+	Initialize control objects with current values & update display
+
+2009-10-05  Daniel P. Berrange  <berrange@redhat.com>
+
+	Add tear off image "polaroids" for thumbnails
+
+	Sort thumbnails based on last modified date
+
+	Refresh session thumbnail browser when session gets a new file
+
+	Control monitor button visibility correctly.
+
+2009-10-04  Daniel P. Berrange  <berrange@redhat.com>
+
+	Use jquery fancybox for pretty screenshot browsing
+
+	Fix RPM spec build / install / dist rules
+
+	Add many screenshots, tweak styles & make it render with IE7
+
+	Add a few tooltips to the main camera window
+
+	Flesh out basic website pages a little more
+
+	Add PNG icons for windows in all recommended sizes
+
+	Add a dummy field to private struct to avoid gobject assertion
+
+	Fix type name for progress object
+
+	Standardize header file style
+
+	Add #include <config.h> to all files
+
+	Convert over to glib logging instead of fprintf
+
+	Fix mistaken unref calls in finalizer
+
+	Add custom control objects for each type of data
+
+2009-10-03  Daniel P. Berrange  <berrange@redhat.com>
+
+	Use widget info for tooltip
+
+	Add basic widget infrastructure for displaying camera controls
+
+	Load image into main display when session browser entry is selected
+
+	Add stupidly inefficient thumbnail loading as temporary demo
+
+	Add the start of a proper icon display for session images
+
+	Add add/remove signals to session object
+
+	Add support for monitoring & autodownloading images triggered from camera
+
+	Fix padding in main split panels
+
+	Add code for generating unique, incrementing filenames for sessions
+
+	Move background thread over to camera class. Use session/images classes
+
+	Add basic classes for managing images and sessions
+
+2009-10-01  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix property name for preferences
+
+	Don't reference pixbuf in expose handler if its NULL
+
+	Add desktopfile and RPM spec and look for glade in install path
+
+2009-09-30  Daniel P. Berrange  <berrange@redhat.com>
+
+	Started a preference modules
+
+	More work on website style/content
+
+2009-09-28  Daniel P. Berrange  <berrange@redhat.com>
+
+	Tweak website navigation content
+
+	Start work on a basic set of webpages
+
+2009-09-27  Daniel P. Berrange  <berrange@redhat.com>
+
+	Turn camera list into a gobject. Refresh list in-place & emit signals
+
+	Auto-refresh device list when usb devs are hotplugged/unplugged
+
+	Control UI sensitivity based on camera capabilities
+
+	Add check that camera succesfully connected
+
+	Fix leak of glade objects in finalizers
+
+	Wire up a help about dialog
+
+	Fix up handling of close / delete events on windows
+
+	Fix many memory leaks and add image preview
+
+2009-09-26  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix memory leak in camera picker cell renderer
+
+	Basic wiring up of quit/disconnect menus & manager window delete
+
+	Wire up menu items for zoom / fullscreen
+
+	Wire up fullscreen toolbar button
+
+	Add a custom scalable image display widget. Default to 'best fit'
+
+2009-09-25  Daniel P. Berrange  <berrange@redhat.com>
+
+	Fix crash when closing camera info dialogs
+
+	Add ability to cancel progress operations
+
+	Add progress display when capturing images since it can be very slow
+
+	Convert CapaCamera into a GObject to get ref counting
+
+	Split out compile of frontend and backend
+	Split the frontend and backend out into separate build libraries.
+	This ensures only the backend can use libgphoto2 directly and
+	that the backend doesn't accidentally end up depending on frontend
+
+	Use a private params context per camera object
+
+	Make a note of why we skip the camera called usb:
+
+2009-09-20  Daniel P. Berrange  <berrange@redhat.com>
+
+	Wire up basic code for extracting list of controls from camera
+
+	Boilerplate classes for settings management
+
+	Add copyright headers to all source files
+
+	Crude experiment making the 'capture' button work
+
+	Add about dialog and camera information display
+
+	Tweak git ignore rules
+
+	Fix compile warnings & add warning message if no cameras are found
+
+	Add autotools magic
+
+	Initial commit of codebase

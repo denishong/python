@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1527770248 source:/home/denishong/Dropbox/datastruct/datastrcut/main.c
+	<stdio.h>
+	<stdlib.h>
+

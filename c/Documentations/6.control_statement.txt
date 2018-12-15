@@ -1,0 +1,10 @@
+goto        : 무조건 분기
+if...else  : 조건문
+switch : 조건선택문
+for
+while
+do...while
+break
+continue
+return
+

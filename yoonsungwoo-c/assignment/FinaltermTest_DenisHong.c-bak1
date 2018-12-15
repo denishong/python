@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct book{
+   char name[40]; //도서명 
+   char author[40]; //저자명
+   char publisher[40]; //출판사
+   char year_mon[20]; //발행연월
+   int location; //서고위치
+   char lent_check[1];   //대출여부
+   char lent_day[20]; //대출일
+}BOOK;
+
+typedef struct magazine{
+	char name[40]; //도서명
+	char type;//유형(life,sports,science,arts)
+	char publisher[40]; //출판사
+	int first_publish; //최초 발행연월
+	int lately_publish; //최근 발행연월
+	int location; //서고위치
+}MAGAZINE;
+
+typedef struct newspaper{
+	char name[40]; //도서명
+	char publisher[40]; //신문사 명
+	int first_publish; //최초 발행연월
+	int lately_publish; //최근 발행연월
+	int location; //서고위치
+}NEWSPAPER;
+
+int ReadDB()
+{
+	char str[30];
+	FILE * fp=fopen("DB.txt", "rt");
+	if(fp==NULL)
+	{
+		puts("file open fail!!");
+		return -1;
+	}
+
+	while(fgets(str, sizeof(str),fp)!=NULL)
+	printf("%s", str);
+	fclose(fp);
+	return 0;
+}
+
+int SearchDB(char * doc)
+{
+	char readcnt,type[2];
+	int i,ret;
+	char *str;
+	char book_name[40];
+	FILE * fp=fopen("DB.txt", "rt");
+	if(fp==NULL)
+	{
+		puts("file open fail!!");
+		return -1;
+	}
+	printf("book name?: %s\n", doc);
+
+	for(i=0; i<14; i++)
+	{
+		#if 0
+		ret=fscanf(fp, "%d %s", type, book_name);
+		if(ret==EOF)
+			break;
+		#endif
+		while(fgets(str, sizeof(str),fp)!='\n');
+		printf("%s", str);
+	}	
+
+	fclose(fp);	
+	return 0;
+}
+
+int main(void)
+{
+	char doc[30];
+
+	printf("book name?: "); 
+	scanf("%s", doc);
+
+	SearchDB(doc);//searching book
+ //	ReadDB();
+
+	return 0;
+}

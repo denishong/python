@@ -1,0 +1,9 @@
+*~
+*\.tar\.xz
+*\.log
+*\.orig
+*\.rej
+*\.gmo
+build/
+vroot/
+po/entangle.pot
