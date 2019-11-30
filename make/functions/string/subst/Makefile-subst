@@ -1,0 +1,4 @@
+#!/bin/sh
+subsituted = $(subst ee,EE,feet)
+test:
+	@echo $(subsituted)

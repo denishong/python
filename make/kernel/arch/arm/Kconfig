@@ -1,0 +1,4 @@
+config ARM
+	bool
+	default y
+	select ARCH_BINFMT_ELF_RANDOMIZE_PIE

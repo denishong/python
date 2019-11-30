@@ -1,0 +1,5 @@
+#!/bin/sh
+test:
+ifeq ($(origin KBUILD_VERBOSE) , undefined)
+	KBUILD_VERBOSE=$(MACHINE) 
+endif

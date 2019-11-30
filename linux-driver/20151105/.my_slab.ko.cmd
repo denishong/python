@@ -1,0 +1,1 @@
+cmd_/root/20151105/my_slab.ko := aarch64-linux-android-ld -EL -r  -T /usr/src/tegra/scripts/module-common.lds --build-id  -o /root/20151105/my_slab.ko /root/20151105/my_slab.o /root/20151105/my_slab.mod.o

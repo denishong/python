@@ -1,0 +1,6 @@
+.PHONY: all 
+
+my-dir=$(call parent-dir,$(lastword $(MAKEFILE_LIST)))
+all :
+	@echo "TEST"
+	@echo $(call my-dir)

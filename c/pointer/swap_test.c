@@ -4,14 +4,14 @@
 void swap(int* a, int* b)
 {
 
-	int* temp;
+	int temp;
 
-	printf("temp=%x *a=%x\n", *temp, *a);
-	*temp=*a;
-	printf("temp=%x *a=%x\n", *temp, *a);
+	printf("temp=%d *a=%d a=%p\n", temp, *a, a);
+	temp=*a;
+	printf("temp=%x *a=%x\n", temp, *a);
 
 	*a=*b;
-	*b=*temp;
+	*b=temp;
 
 }
 
@@ -28,6 +28,7 @@ int main(){
 	swap(&a,&b);
 
 	printf("%d %d\n", a,b);
+	printf("%p %p\n", &a, &b);
 
 	return 0;
 }

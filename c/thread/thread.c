@@ -1,9 +1,9 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-
-int *firstThreadRun()
+void *firstThreadRun()
 {
 	while(1)
 	{
@@ -14,7 +14,7 @@ int *firstThreadRun()
 }
 
 
-int *secondThreadRun()
+void *secondThreadRun()
 {
 	while(1)
 	{
@@ -24,10 +24,28 @@ int *secondThreadRun()
 	return 0;
 }
 
+void *thirdThreadRun()
+{
+   while(1)
+   {   
+      sleep(5);
+      printf("start third thread\n");
+   }   
+   return 0;
+}
+void *fourthThreadRun()
+{
+   while(1)
+   {   
+      sleep(8);
+      printf("start fourth thread\n");
+   }   
+   return 0;
+}
 
 int main(void)
 {
-	pthread_t firstThread, secondThread;
+	pthread_t firstThread, secondThread,thirdThread,fourthThread;
 	int threadErr;
 
 	if(threadErr = pthread_create(&firstThread, NULL, firstThreadRun, NULL))
@@ -40,6 +58,16 @@ int main(void)
 	{
 		printf("thread error= %d", threadErr);
 	}
+
+   if(threadErr = pthread_create(&thirdThread, NULL, thirdThreadRun, NULL))
+   {
+      printf("thread error= %d", threadErr);
+   }
+
+   if(threadErr = pthread_create(&fourthThread, NULL, fourthThreadRun, NULL))
+   {
+      printf("thread error= %d", threadErr);
+   }
 
 	while(1);
 	return 0;

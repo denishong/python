@@ -1,0 +1,1 @@
+cmd_/root/20151104/my_process.ko := aarch64-linux-android-ld -EL -r  -T /usr/src/tegra/scripts/module-common.lds --build-id  -o /root/20151104/my_process.ko /root/20151104/my_process.o /root/20151104/my_process.mod.o

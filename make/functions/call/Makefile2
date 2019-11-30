@@ -1,0 +1,11 @@
+reverse=$2 $1
+
+a=c
+b=d
+
+
+pathsearch=$(firstword $(wildcard $(addsuffix /$(1), $(subst :, ,$(PATH)))))
+all :
+	$(call reverse,$a,$b)
+	LS:=$(call pathsearch,ls)
+	echo $(PATH)

@@ -1,0 +1,3 @@
+#!/bin/sh
+test:
+	@echo $(patsubst %.c,%.o,foo.c a.c.c)

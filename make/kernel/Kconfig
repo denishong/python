@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# For a description of the syntax of this configuration file,
+# see Documentation/kbuild/kconfig-language.txt.
+#
+mainmenu "Linux/$ARCH $KERNELVERSION Kernel Configuration"
+
+config arm 
+	string
+	option env="SRCARCH"
+
+source "arch/arm/Kconfig"
+
+menuconfig MODULES 
+	bool "Enable loadable module support"
+	option modules
+	help
+		kernel modules ar small pieces of compiled code which can
+		be inserted in the running kernel, rather than being permanently built
+		into the kernel.

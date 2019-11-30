@@ -1,0 +1,30 @@
+config HSI_TEST 
+	bool "Enable hsi test config"
+	default y
+	help
+	  Say Y if you want to enable log functions, such as
+	  print_dbg, print_info, print_warn, print_err.
+	  If you say N here, those functions are not compiled.
+
+config DEFAULT_LOG_LEVEL
+        int "Default log level (1-4)"
+        range 1 4
+        default "3"
+	depends on ENABLE_LOGGING
+        help
+          Default priority level for log functions.
+	  Depending on this variable, each of log functions (print_err,
+	  print_warn, print_info, print_debug) output log messages
+	  to the console, or just return without doing anything.
+
+	  LOGLEVEL  print_err  print_warn  print_info  print_debug
+	     1          o          x           x           x
+	     2          o          o           x           x
+	     3          o          o           o           x
+	     4          o          o           o           o
+
+	  here, o: output log messages
+	        x: do nothing
+	  You can overwride this variable with environment variable
+	  "MYAPP_LOGLEVEL".
+

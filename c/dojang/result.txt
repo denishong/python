@@ -1,0 +1,55 @@
+이진파일 ./c.dojang/Unit 70/file_get_string.c 와(과) 일치
+./c.dojang/Unit 80/option/option/option.vcxproj:2:<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+./c.dojang/Unit 80/option/option/option.vcxproj:27:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+./c.dojang/Unit 80/option/option/option.vcxproj:54:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+./c.dojang/Unit 80/option/option/option.vcxproj:151:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+./c.dojang/Unit 80/option/option/option.vcxproj:152:  <ImportGroup Label="ExtensionTargets">
+이진파일 ./c.dojang/Unit 85/input_buffer.c 와(과) 일치
+이진파일 ./c.dojang/Unit 85/clear_input_buffer.c 와(과) 일치
+이진파일 ./c.dojang/Unit 85/gets_s_puts.c 와(과) 일치
+이진파일 ./c.dojang/.git/index 와(과) 일치
+./c.dojang/Unit 82/filearchive/filearchive/filearchive.vcxproj:2:<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+./c.dojang/Unit 82/filearchive/filearchive/filearchive.vcxproj:27:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+./c.dojang/Unit 82/filearchive/filearchive/filearchive.vcxproj:54:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+./c.dojang/Unit 82/filearchive/filearchive/filearchive.vcxproj:159:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+./c.dojang/Unit 82/filearchive/filearchive/filearchive.vcxproj:160:  <ImportGroup Label="ExtensionTargets">
+./c.dojang/Unit 77/examplecalc/examplecalc/examplecalc.vcxproj:2:<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+./c.dojang/Unit 77/examplecalc/examplecalc/examplecalc.vcxproj:27:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+./c.dojang/Unit 77/examplecalc/examplecalc/examplecalc.vcxproj:54:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+./c.dojang/Unit 77/examplecalc/examplecalc/examplecalc.vcxproj:158:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+./c.dojang/Unit 77/examplecalc/examplecalc/examplecalc.vcxproj:159:  <ImportGroup Label="ExtensionTargets">
+./c.dojang/Unit 83/83.4/json/json/json.vcxproj:2:<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+./c.dojang/Unit 83/83.4/json/json/json.vcxproj:27:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+./c.dojang/Unit 83/83.4/json/json/json.vcxproj:54:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+./c.dojang/Unit 83/83.4/json/json/json.vcxproj:151:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+./c.dojang/Unit 83/83.4/json/json/json.vcxproj:152:  <ImportGroup Label="ExtensionTargets">
+./c.dojang/Unit 83/83.6/json/json/json.vcxproj:2:<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+./c.dojang/Unit 83/83.6/json/json/json.vcxproj:27:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+./c.dojang/Unit 83/83.6/json/json/json.vcxproj:54:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+./c.dojang/Unit 83/83.6/json/json/json.vcxproj:151:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+./c.dojang/Unit 83/83.6/json/json/json.vcxproj:152:  <ImportGroup Label="ExtensionTargets">
+./c.dojang/Unit 83/83.7/json/json/json.vcxproj:2:<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+./c.dojang/Unit 83/83.7/json/json/json.vcxproj:27:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+./c.dojang/Unit 83/83.7/json/json/json.vcxproj:54:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+./c.dojang/Unit 83/83.7/json/json/json.vcxproj:151:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+./c.dojang/Unit 83/83.7/json/json/json.vcxproj:152:  <ImportGroup Label="ExtensionTargets">
+./c.dojang/Unit 83/83.5/json/json/json.vcxproj:2:<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+./c.dojang/Unit 83/83.5/json/json/json.vcxproj:27:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+./c.dojang/Unit 83/83.5/json/json/json.vcxproj:54:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+./c.dojang/Unit 83/83.5/json/json/json.vcxproj:151:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+./c.dojang/Unit 83/83.5/json/json/json.vcxproj:152:  <ImportGroup Label="ExtensionTargets">
+./c.dojang/Unit 83/83.3/json/json/json.vcxproj:2:<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+./c.dojang/Unit 83/83.3/json/json/json.vcxproj:27:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+./c.dojang/Unit 83/83.3/json/json/json.vcxproj:54:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+./c.dojang/Unit 83/83.3/json/json/json.vcxproj:151:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+./c.dojang/Unit 83/83.3/json/json/json.vcxproj:152:  <ImportGroup Label="ExtensionTargets">
+./c.dojang/Unit 84/84.3/parson/parson/parson.vcxproj:2:<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+./c.dojang/Unit 84/84.3/parson/parson/parson.vcxproj:27:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+./c.dojang/Unit 84/84.3/parson/parson/parson.vcxproj:54:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+./c.dojang/Unit 84/84.3/parson/parson/parson.vcxproj:155:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+./c.dojang/Unit 84/84.3/parson/parson/parson.vcxproj:156:  <ImportGroup Label="ExtensionTargets">
+./c.dojang/Unit 84/84.2/parson/parson/parson.vcxproj:2:<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+./c.dojang/Unit 84/84.2/parson/parson/parson.vcxproj:27:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+./c.dojang/Unit 84/84.2/parson/parson/parson.vcxproj:54:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+./c.dojang/Unit 84/84.2/parson/parson/parson.vcxproj:155:  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+./c.dojang/Unit 84/84.2/parson/parson/parson.vcxproj:156:  <ImportGroup Label="ExtensionTargets">

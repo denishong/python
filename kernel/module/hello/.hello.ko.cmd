@@ -1,0 +1,1 @@
+cmd_/home/denishong/Dropbox/gongbu/kernel/module/hello/hello.ko := ld -r -m elf_x86_64 -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/denishong/Dropbox/gongbu/kernel/module/hello/hello.ko /home/denishong/Dropbox/gongbu/kernel/module/hello/hello.o /home/denishong/Dropbox/gongbu/kernel/module/hello/hello.mod.o ;  true

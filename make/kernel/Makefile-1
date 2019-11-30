@@ -1,0 +1,12 @@
+stripsync : disp trac plot
+	strip $?
+	echo "Last time excutables were stipped: c" > $@
+	date >> $@
+	touch $@
+
+disp : 
+	@echo disp	
+trac :
+	@echo trac 
+plot : 
+	@echo plot 

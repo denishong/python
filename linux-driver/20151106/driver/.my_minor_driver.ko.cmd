@@ -1,0 +1,1 @@
+cmd_/root/20151106/driver/my_minor_driver.ko := aarch64-linux-android-ld -EL -r  -T /usr/src/tegra/scripts/module-common.lds --build-id  -o /root/20151106/driver/my_minor_driver.ko /root/20151106/driver/my_minor_driver.o /root/20151106/driver/my_minor_driver.mod.o

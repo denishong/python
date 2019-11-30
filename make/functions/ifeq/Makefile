@@ -1,0 +1,32 @@
+#!/bin/make
+
+KBUILD_EXTMOD = 
+
+all: iftest help2
+
+iftest:
+ifeq ($(KBUILD_EXTMOD), )
+	@echo "ifeq test is true"
+	@mkdir -p ./tools
+else
+	@echo "ifeq test is false"
+endif
+
+build-dir  = $(patsubst %/,%,$(dir $@))
+target-dir = $(dir $@)
+
+help help2 :
+	@echo $(target-dir) 
+	@echo $(dir $@)
+	@echo $(patsubst %/,%,$(dir $@))
+	@echo $@
+
+.PHONY : help 
+helps:
+	@echo "test again"
+
+LIST = foo bear boo
+list:
+	for i in $(LIST); do \
+	echo $$i;\
+	done

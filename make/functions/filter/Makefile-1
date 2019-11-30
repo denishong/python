@@ -1,0 +1,6 @@
+#!/bin/sh
+sources := foo.c bar.c baz.s ugh.h
+filtered = $(filter %.c %.s,$(sources)) 
+test:
+	@echo $(sources)	
+	@echo $(filtered)

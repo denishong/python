@@ -1,0 +1,5 @@
+#!/bin/sh
+KBUILD_OUTPUT = ./kbuild
+KBUILD_OUTPUT := $(shell mkdir -p $(KBUILD_OUTPUT))
+test:
+	@echo $(KBUILD_OUTPUT)

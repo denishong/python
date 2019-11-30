@@ -1,0 +1,1 @@
+cmd_/root/20151103/my_workqueue.ko := aarch64-linux-android-ld -EL -r  -T /usr/src/tegra/scripts/module-common.lds --build-id  -o /root/20151103/my_workqueue.ko /root/20151103/my_workqueue.o /root/20151103/my_workqueue.mod.o

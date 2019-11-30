@@ -1,0 +1,1 @@
+cmd_/root/20151105/my_page.ko := aarch64-linux-android-ld -EL -r  -T /usr/src/tegra/scripts/module-common.lds --build-id  -o /root/20151105/my_page.ko /root/20151105/my_page.o /root/20151105/my_page.mod.o

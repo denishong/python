@@ -1,0 +1,1 @@
+cmd_/home/denishong/Dropbox/gongbu/kernel/module/kthread/kthread.ko := ld -r -m elf_x86_64 -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/denishong/Dropbox/gongbu/kernel/module/kthread/kthread.ko /home/denishong/Dropbox/gongbu/kernel/module/kthread/kthread.o /home/denishong/Dropbox/gongbu/kernel/module/kthread/kthread.mod.o ;  true
