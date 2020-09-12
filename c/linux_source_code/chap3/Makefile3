@@ -1,0 +1,3 @@
+clean:
+	@rm -rf *.exe *.o *~ *.bak *.deps *.tgz $(UNAME)
+

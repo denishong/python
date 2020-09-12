@@ -4,7 +4,7 @@
 CC = gcc
 CFLAGS := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs
 TARGET = test_print
-#OBJS = main.o print1.o print2.o print3.o print4.o  print11.o print21.o print111.o
+OBJS = main.o print1.o print2.o print3.o print4.o  print11.o print21.o print111.o
 CFLAGS = -I include
 vpath %.c main sub1 sub1/sub11 sub2
 vpath %.h include
