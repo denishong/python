@@ -1,0 +1,26 @@
+#include <stdio.h>
+void print(char a[]);
+
+int main()
+{
+	char a1[10] = {124,92,95,47,124}, a2[10] = {124,113,0,112,124,0,0,0,47,125}; 
+	char a3[10] = {40,0,48,0,41,34,34,34,92}, a4[10] = {124,34,94,34,96,0,0,0,0,124}; 
+	char a5[10] = {124,124,95,47,61,92,92,95,95,124};
+	
+	print(a1);
+	print(a2);
+	print(a3);
+	print(a4);
+	print(a5);
+	
+	return 0;
+}
+
+void print(char a[10])
+{
+	for (int i = 0; i <= 9; i++){
+		printf("%c", a[i]);
+	}
+	printf("\n");
+}
+

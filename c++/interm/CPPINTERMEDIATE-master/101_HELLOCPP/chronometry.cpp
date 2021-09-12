@@ -58,5 +58,3 @@ int main()
 	// 특정 함수의 실행시간을 측정하는 함수.
 	chronometry(&Hello::Say, Hello("hello"s)); 
 }
-
-

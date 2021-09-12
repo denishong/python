@@ -1,0 +1,139 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+arr_x	recursive/11729-1.c	/^int arr_x[20];$/;"	v
+arr_x	recursive/11729.c	/^int arr_x[20];$/;"	v
+arr_y	recursive/11729-1.c	/^int arr_y[20];$/;"	v
+arr_y	recursive/11729.c	/^int arr_y[20];$/;"	v
+count	recursive/11729-1.c	/^int count = 0;$/;"	v
+count	recursive/11729.c	/^int count = 0;$/;"	v
+fac	recursive/factorial.c	/^int fac(int a)$/;"	f
+factorial	recursive/10872.c	/^int factorial(int a)$/;"	f
+factorial	recursive/if-test.c	/^int factorial(int a)$/;"	f
+false	stack/4949-1.c	10;"	d	file:
+false	stack/4949.c	10;"	d	file:
+get	stack/4949-1.c	/^int get()$/;"	f
+get	stack/4949.c	/^int get()$/;"	f
+IsEmpty	stack/10773.c	/^int IsEmpty()$/;"	f
+IsEmpty	stack/10828-1.c	/^void IsEmpty()$/;"	f
+IsEmpty	stack/10828.c	/^int IsEmpty()$/;"	f
+IsEmpty	stack/4949-1.c	/^int IsEmpty()$/;"	f
+IsEmpty	stack/4949.c	/^int IsEmpty()$/;"	f
+IsFull	stack/10773.c	/^int IsFull()$/;"	f
+IsFull	stack/10828-1.c	/^void IsFull()$/;"	f
+IsFull	stack/10828.c	/^int IsFull()$/;"	f
+IsFull	stack/4949-1.c	/^int IsFull()$/;"	f
+IsFull	stack/4949.c	/^int IsFull()$/;"	f
+main	2839.c	/^int main()$/;"	f
+main	array/10818.c	/^int main()$/;"	f
+main	array/1546.c	/^int main()$/;"	f
+main	array/2562.c	/^int main()$/;"	f
+main	array/2577.c	/^int main()$/;"	f
+main	array/3052.c	/^int main()$/;"	f
+main	array/8958.c	/^int main()$/;"	f
+main	array/a.c	/^int main()$/;"	f
+main	bruteforce/2231-1.c	/^int main()$/;"	f
+main	bruteforce/2231.c	/^int main()$/;"	f
+main	bruteforce/2798.c	/^int main()$/;"	f
+main	bruteforce/7568.c	/^int main()$/;"	f
+main	bruteforce/array-test.c	/^int main()$/;"	f
+main	bruteforce/remain-test.c	/^int main()$/;"	f
+main	charter/1.c	/^int main()$/;"	f
+main	charter/10809.c	/^int main()$/;"	f
+main	charter/1152.c	/^int main()$/;"	f
+main	charter/1157.c	/^int main()$/;"	f
+main	charter/11654.c	/^int main()$/;"	f
+main	charter/11719.c	/^int main()$/;"	f
+main	charter/11720.c	/^int main()$/;"	f
+main	charter/11721.c	/^int main()$/;"	f
+main	charter/1316.c	/^int main()$/;"	f
+main	charter/2.c	/^int main()$/;"	f
+main	charter/2675.c	/^int main()$/;"	f
+main	charter/2743.c	/^int main()$/;"	f
+main	charter/2908.c	/^int main()$/;"	f
+main	charter/2941.c	/^int main()$/;"	f
+main	charter/5622.c	/^int main()$/;"	f
+main	charter/9086.c	/^int main()$/;"	f
+main	charter/scanf_1.c	/^int main()$/;"	f
+main	charter/ssss.c	/^int main()$/;"	f
+main	for/10871.c	/^int main()$/;"	f
+main	for/11022.c	/^int main()$/;"	f
+main	for/2438.c	/^int main()$/;"	f
+main	for/2439.c	/^int main()$/;"	f
+main	if/1330.c	/^int main()$/;"	f
+main	if/14681.c	/^int main()$/;"	f
+main	if/2753.c	/^int main()$/;"	f
+main	if/2884.c	/^int main()$/;"	f
+main	if/9498.c	/^int main()$/;"	f
+main	if/test.c	/^int main()$/;"	f
+main	input-calc/1008.c	/^int main()$/;"	f
+main	input-calc/10172.c	/^int main()$/;"	f
+main	input-calc/10430.c	/^int main()$/;"	f
+main	input-calc/10869.c	/^int main()$/;"	f
+main	input-calc/10998.c	/^int main()$/;"	f
+main	input-calc/2588.c	/^int main()$/;"	f
+main	recursive/10872.c	/^int main()$/;"	f
+main	recursive/11729-1.c	/^int main()$/;"	f
+main	recursive/11729.c	/^int main()$/;"	f
+main	recursive/factorial.c	/^int main()$/;"	f
+main	recursive/if-test.c	/^int main()$/;"	f
+main	recursive/recur.c	/^int main()$/;"	f
+main	recursive/recursion_add.c	/^int main()$/;"	f
+main	stack/10773.c	/^int main()$/;"	f
+main	stack/10828-1.c	/^int main()$/;"	f
+main	stack/10828.c	/^int main()$/;"	f
+main	stack/4949-1.c	/^int main()$/;"	f
+main	stack/4949.c	/^int main()$/;"	f
+main	while/10951.c	/^int main()$/;"	f
+main	while/10952.c	/^int main()$/;"	f
+main	while/1110.c	/^int main()$/;"	f
+MAX_STACK_SIZE	stack/10773.c	3;"	d	file:
+MAX_STACK_SIZE	stack/10828-1.c	4;"	d	file:
+MAX_STACK_SIZE	stack/10828.c	4;"	d	file:
+MAX_STACK_SIZE	stack/4949-1.c	5;"	d	file:
+MAX_STACK_SIZE	stack/4949.c	5;"	d	file:
+move	recursive/11729-1.c	/^void move(int n,int x,int y)$/;"	f
+move	recursive/11729.c	/^void move(int n,int x,int y)$/;"	f
+pop	stack/10773.c	/^int pop()$/;"	f
+pop	stack/10828-1.c	/^void pop()$/;"	f
+pop	stack/10828.c	/^int pop()$/;"	f
+pop	stack/4949-1.c	/^int pop()$/;"	f
+pop	stack/4949.c	/^int pop()$/;"	f
+push	stack/10773.c	/^void push(int a)$/;"	f
+push	stack/10828-1.c	/^void push(int a)$/;"	f
+push	stack/10828.c	/^void push(int a)$/;"	f
+push	stack/4949-1.c	/^void push(int a)$/;"	f
+push	stack/4949.c	/^void push(int a)$/;"	f
+recur	recursive/recur.c	/^int recur(int a)$/;"	f
+recursion	recursive/recursion_add.c	/^int recursion(int i)$/;"	f
+size	stack/10773.c	/^int size()$/;"	f
+size	stack/10828-1.c	/^void size()$/;"	f
+size	stack/10828.c	/^int size()$/;"	f
+size	stack/4949-1.c	/^int size()$/;"	f
+size	stack/4949.c	/^int size()$/;"	f
+stack	stack/10773.c	/^int stack[MAX_STACK_SIZE]={0};$/;"	v
+stack	stack/10828-1.c	/^int stack[MAX_STACK_SIZE]={0};$/;"	v
+stack	stack/10828.c	/^int stack[MAX_STACK_SIZE]={0};$/;"	v
+stack	stack/4949-1.c	/^int stack[MAX_STACK_SIZE];$/;"	v
+stack	stack/4949.c	/^int stack[MAX_STACK_SIZE];$/;"	v
+swap	charter/2.c	/^int swap(int *a, int *b)$/;"	f
+swap	charter/2908.c	/^char swap(char *str)$/;"	f
+top	stack/10773.c	/^int top()$/;"	f
+top	stack/10828-1.c	/^void top()$/;"	f
+top	stack/10828.c	/^int top()$/;"	f
+top	stack/4949-1.c	/^int top()$/;"	f
+top	stack/4949.c	/^int top()$/;"	f
+top1	recursive/11729-1.c	/^int top1 = 0, top2 = 0; $/;"	v
+top1	recursive/11729.c	/^int top1 = 0, top2 = 0; $/;"	v
+top2	recursive/11729-1.c	/^int top1 = 0, top2 = 0; $/;"	v
+top2	recursive/11729.c	/^int top1 = 0, top2 = 0; $/;"	v
+true	stack/4949-1.c	9;"	d	file:
+true	stack/4949.c	9;"	d	file:
+_top	stack/10773.c	/^int _top=-1;$/;"	v
+_top	stack/10828-1.c	/^int _top=-1;$/;"	v
+_top	stack/10828.c	/^int _top=-1;$/;"	v
+_top	stack/4949-1.c	/^int _top=-1;$/;"	v
+_top	stack/4949.c	/^int _top=-1;$/;"	v
