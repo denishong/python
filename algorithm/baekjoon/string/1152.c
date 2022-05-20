@@ -14,12 +14,9 @@ int main()
 	//	printf(" length : %d i : %d\n", length,i);
 
 		i++;
-		if (str[0] == ' ' && str[1] == '\0')
-		{
+		if (str[0] == ' ' && str[1] == '\0'){
 			break;
-		}
-		else if(i == 0 && str[0] ==' ')
-		{
+		}else if(i == 0 && str[0] ==' '){
 
 		}else if( str[i] == ' '){
 			length++;

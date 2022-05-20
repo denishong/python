@@ -1,101 +1,59 @@
-#include <iostream>
-
+#include <bits/stdc++.h>
 using namespace std;
-int c2d[128];
-char d2c[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-char S[101],D[101]; // input number
-int B = 10;
+char A[10002];
+char B[10002];
+char res[10003];
+int carry = 0;
+int length = 0;
 
-void inputData(){
-	cin >> S >> D;
+void InputData(){
+    cin >> A >> B;
 }
-
-void makec2d(){
-
-	int i,j;
-	for(i='0', j=0; i<='9'; i++,j++){
-		c2d[i]=j;
-	}
-
-	for(i='A'; i<='Z'; i++,j++){
-		c2d[i]=j;
-	}
-
+void reverse(char arr[]){
+    int len = strlen(arr);
+    for(int i=0; i<len/2; i++){
+        char temp = arr[i];
+        arr[i] = arr[len -i -1];
+        arr[len -i -1] = temp;
+    }
 }
+void Solve(){
+    int sum = 0, temp;
+    char chA, chB;
+    reverse(A);
+    reverse(B);
+    int sizeA = strlen(A);
+    int sizeB = strlen(B);
 
-int conv( int *dst, char *src){
-	int i;
-	for( i =0; src[i]; i++) dst[i] = c2d[src[i]];
-	return i;
+    if( sizeA > sizeB){
+        length = sizeA;
+    }else{
+        length = sizeB;
+    }
+
+    for(int i=0; i<length; i++){
+        if( sizeA >= i)
+            chA = (A[i]-'0');
+        else
+            chA = 0;
+
+        if( sizeB >= i)
+            chB = (B[i]-'0');
+        else
+            chB = 0;
+
+        sum = chA + chB + carry; 
+        carry = sum /10;
+        res[i] = sum % 10 + '0';
+    }
+    if( carry == 1)
+        res[length] = '1';
+    reverse(res);
+    cout << res << endl;
 }
-
-void mul(char *s, char *d){
-	int S[110], D[110], sol[210]={0};
-	int slen = conv(S,s);
-	int dlen = conv(D,d);
-	int len = slen + dlen, i,j;
-
-	for( i = 0; i < slen; i++){
-		for( j = 0; j < dlen; j++){
-			sol[i + j + 1] += S[i] * D[j];
-		}
-	}
-
-	for( i = len - 1; i > 0; i--){
-		if( sol[i] >= B){
-			sol[i - 1] += sol[i] / B;
-			sol[i] %= B;
-		}
-	}
-
-
-	for( i= sol[0] == 0; i< len; i++){
-		cout << d2c[sol[i]];
-	}
-	cout << '\n';
-
-}
-
-void add(char *s, char *d){
-	int S[110], D[110], sol[210]={0};
-	int slen = conv(S,s);
-	int dlen = conv(D,d);
-	int len = slen + dlen, i,j;
-
-	for( i = 0; i < slen; i++){
-		for( j = 0; j < dlen; j++){
-			sol[i + j + 1] += S[i] * D[j];
-		}
-	}
-
-	for( i = len - 1; i > 0; i--){
-		if( sol[i] >= B){
-			sol[i - 1] += sol[i] / B;
-			sol[i] %= B;
-		}
-	}
-
-
-	for( i= sol[0] == 0; i< len; i++){
-		cout << d2c[sol[i]];
-	}
-	cout << '\n';
-
-}
-
-void solve(){
-
-	char *s = S, *d = D;
-
-	add( s, d);
-}
-
 
 int main(){
-
-	makec2d();
-	inputData();
-	solve();
-
-	return 0;
+    InputData();
+    Solve();
+    return 0;
 }

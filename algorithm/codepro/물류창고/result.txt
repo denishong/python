@@ -1,0 +1,175 @@
+5 7
+1 2 5
+3 2 14
+2 4 5
+1 3 10
+4 3 15
+5 4 15
+3 5 8
+IMP 5 10 IMP IMP 
+5 IMP 14 5 IMP 
+10 14 IMP 15 8 
+IMP 5 15 IMP 15 
+IMP IMP 8 15 IMP 
+tmp : 1
+visited[i], visted[tmp], dist[tmp][i] 0,0,IMP
+visited[i], visted[tmp], dist[tmp][i] IMP,0,5
+visited[i], visted[tmp], dist[tmp][i] IMP,0,10
+visited[i], visted[tmp], dist[tmp][i] IMP,0,IMP
+visited[i], visted[tmp], dist[tmp][i] IMP,0,IMP
+tmp : 2
+visited[i], visted[tmp], dist[tmp][i] 0,5,5
+visited[i], visted[tmp], dist[tmp][i] 5,5,IMP
+visited[i], visted[tmp], dist[tmp][i] 10,5,14
+visited[i], visted[tmp], dist[tmp][i] IMP,5,5
+visited[i], visted[tmp], dist[tmp][i] IMP,5,IMP
+tmp : 3
+visited[i], visted[tmp], dist[tmp][i] 0,10,10
+visited[i], visted[tmp], dist[tmp][i] 5,10,14
+visited[i], visted[tmp], dist[tmp][i] 10,10,IMP
+visited[i], visted[tmp], dist[tmp][i] 10,10,15
+visited[i], visted[tmp], dist[tmp][i] IMP,10,8
+tmp : 4
+visited[i], visted[tmp], dist[tmp][i] 0,10,IMP
+visited[i], visted[tmp], dist[tmp][i] 5,10,5
+visited[i], visted[tmp], dist[tmp][i] 10,10,15
+visited[i], visted[tmp], dist[tmp][i] 10,10,IMP
+visited[i], visted[tmp], dist[tmp][i] 18,10,15
+tmp : 5
+visited[i], visted[tmp], dist[tmp][i] 0,18,IMP
+visited[i], visted[tmp], dist[tmp][i] 5,18,IMP
+visited[i], visted[tmp], dist[tmp][i] 10,18,8
+visited[i], visted[tmp], dist[tmp][i] 10,18,15
+visited[i], visted[tmp], dist[tmp][i] 18,18,IMP
+tmp : 2
+visited[i], visted[tmp], dist[tmp][i] IMP,0,5
+visited[i], visted[tmp], dist[tmp][i] 0,0,IMP
+visited[i], visted[tmp], dist[tmp][i] IMP,0,14
+visited[i], visted[tmp], dist[tmp][i] IMP,0,5
+visited[i], visted[tmp], dist[tmp][i] IMP,0,IMP
+tmp : 1
+visited[i], visted[tmp], dist[tmp][i] 5,5,IMP
+visited[i], visted[tmp], dist[tmp][i] 0,5,5
+visited[i], visted[tmp], dist[tmp][i] 14,5,10
+visited[i], visted[tmp], dist[tmp][i] 5,5,IMP
+visited[i], visted[tmp], dist[tmp][i] IMP,5,IMP
+tmp : 3
+visited[i], visted[tmp], dist[tmp][i] 5,14,10
+visited[i], visted[tmp], dist[tmp][i] 0,14,14
+visited[i], visted[tmp], dist[tmp][i] 14,14,IMP
+visited[i], visted[tmp], dist[tmp][i] 5,14,15
+visited[i], visted[tmp], dist[tmp][i] IMP,14,8
+tmp : 4
+visited[i], visted[tmp], dist[tmp][i] 5,5,IMP
+visited[i], visted[tmp], dist[tmp][i] 0,5,5
+visited[i], visted[tmp], dist[tmp][i] 14,5,15
+visited[i], visted[tmp], dist[tmp][i] 5,5,IMP
+visited[i], visted[tmp], dist[tmp][i] 22,5,15
+tmp : 5
+visited[i], visted[tmp], dist[tmp][i] 5,20,IMP
+visited[i], visted[tmp], dist[tmp][i] 0,20,IMP
+visited[i], visted[tmp], dist[tmp][i] 14,20,8
+visited[i], visted[tmp], dist[tmp][i] 5,20,15
+visited[i], visted[tmp], dist[tmp][i] 20,20,IMP
+tmp : 5
+visited[i], visted[tmp], dist[tmp][i] 5,20,IMP
+visited[i], visted[tmp], dist[tmp][i] 0,20,IMP
+visited[i], visted[tmp], dist[tmp][i] 14,20,8
+visited[i], visted[tmp], dist[tmp][i] 5,20,15
+visited[i], visted[tmp], dist[tmp][i] 20,20,IMP
+tmp : 3
+visited[i], visted[tmp], dist[tmp][i] IMP,0,10
+visited[i], visted[tmp], dist[tmp][i] IMP,0,14
+visited[i], visted[tmp], dist[tmp][i] 0,0,IMP
+visited[i], visted[tmp], dist[tmp][i] IMP,0,15
+visited[i], visted[tmp], dist[tmp][i] IMP,0,8
+tmp : 1
+visited[i], visted[tmp], dist[tmp][i] 10,10,IMP
+visited[i], visted[tmp], dist[tmp][i] 14,10,5
+visited[i], visted[tmp], dist[tmp][i] 0,10,10
+visited[i], visted[tmp], dist[tmp][i] 15,10,IMP
+visited[i], visted[tmp], dist[tmp][i] 8,10,IMP
+tmp : 2
+visited[i], visted[tmp], dist[tmp][i] 10,14,5
+visited[i], visted[tmp], dist[tmp][i] 14,14,IMP
+visited[i], visted[tmp], dist[tmp][i] 0,14,14
+visited[i], visted[tmp], dist[tmp][i] 15,14,5
+visited[i], visted[tmp], dist[tmp][i] 8,14,IMP
+tmp : 4
+visited[i], visted[tmp], dist[tmp][i] 10,15,IMP
+visited[i], visted[tmp], dist[tmp][i] 14,15,5
+visited[i], visted[tmp], dist[tmp][i] 0,15,15
+visited[i], visted[tmp], dist[tmp][i] 15,15,IMP
+visited[i], visted[tmp], dist[tmp][i] 8,15,15
+tmp : 5
+visited[i], visted[tmp], dist[tmp][i] 10,8,IMP
+visited[i], visted[tmp], dist[tmp][i] 14,8,IMP
+visited[i], visted[tmp], dist[tmp][i] 0,8,8
+visited[i], visted[tmp], dist[tmp][i] 15,8,15
+visited[i], visted[tmp], dist[tmp][i] 8,8,IMP
+tmp : 4
+visited[i], visted[tmp], dist[tmp][i] IMP,0,IMP
+visited[i], visted[tmp], dist[tmp][i] IMP,0,5
+visited[i], visted[tmp], dist[tmp][i] IMP,0,15
+visited[i], visted[tmp], dist[tmp][i] 0,0,IMP
+visited[i], visted[tmp], dist[tmp][i] IMP,0,15
+tmp : 2
+visited[i], visted[tmp], dist[tmp][i] IMP,5,5
+visited[i], visted[tmp], dist[tmp][i] 5,5,IMP
+visited[i], visted[tmp], dist[tmp][i] 15,5,14
+visited[i], visted[tmp], dist[tmp][i] 0,5,5
+visited[i], visted[tmp], dist[tmp][i] 15,5,IMP
+tmp : 3
+visited[i], visted[tmp], dist[tmp][i] 10,15,10
+visited[i], visted[tmp], dist[tmp][i] 5,15,14
+visited[i], visted[tmp], dist[tmp][i] 15,15,IMP
+visited[i], visted[tmp], dist[tmp][i] 0,15,15
+visited[i], visted[tmp], dist[tmp][i] 15,15,8
+tmp : 5
+visited[i], visted[tmp], dist[tmp][i] 10,15,IMP
+visited[i], visted[tmp], dist[tmp][i] 5,15,IMP
+visited[i], visted[tmp], dist[tmp][i] 15,15,8
+visited[i], visted[tmp], dist[tmp][i] 0,15,15
+visited[i], visted[tmp], dist[tmp][i] 15,15,IMP
+tmp : 1
+visited[i], visted[tmp], dist[tmp][i] 10,10,IMP
+visited[i], visted[tmp], dist[tmp][i] 5,10,5
+visited[i], visted[tmp], dist[tmp][i] 15,10,10
+visited[i], visted[tmp], dist[tmp][i] 0,10,IMP
+visited[i], visted[tmp], dist[tmp][i] 15,10,IMP
+tmp : 5
+visited[i], visted[tmp], dist[tmp][i] IMP,0,IMP
+visited[i], visted[tmp], dist[tmp][i] IMP,0,IMP
+visited[i], visted[tmp], dist[tmp][i] IMP,0,8
+visited[i], visted[tmp], dist[tmp][i] IMP,0,15
+visited[i], visted[tmp], dist[tmp][i] 0,0,IMP
+tmp : 3
+visited[i], visted[tmp], dist[tmp][i] IMP,8,10
+visited[i], visted[tmp], dist[tmp][i] IMP,8,14
+visited[i], visted[tmp], dist[tmp][i] 8,8,IMP
+visited[i], visted[tmp], dist[tmp][i] 15,8,15
+visited[i], visted[tmp], dist[tmp][i] 0,8,8
+tmp : 4
+visited[i], visted[tmp], dist[tmp][i] 18,15,IMP
+visited[i], visted[tmp], dist[tmp][i] 22,15,5
+visited[i], visted[tmp], dist[tmp][i] 8,15,15
+visited[i], visted[tmp], dist[tmp][i] 15,15,IMP
+visited[i], visted[tmp], dist[tmp][i] 0,15,15
+tmp : 1
+visited[i], visted[tmp], dist[tmp][i] 18,18,IMP
+visited[i], visted[tmp], dist[tmp][i] 20,18,5
+visited[i], visted[tmp], dist[tmp][i] 8,18,10
+visited[i], visted[tmp], dist[tmp][i] 15,18,IMP
+visited[i], visted[tmp], dist[tmp][i] 0,18,IMP
+tmp : 2
+visited[i], visted[tmp], dist[tmp][i] 18,20,5
+visited[i], visted[tmp], dist[tmp][i] 20,20,IMP
+visited[i], visted[tmp], dist[tmp][i] 8,20,14
+visited[i], visted[tmp], dist[tmp][i] 15,20,5
+visited[i], visted[tmp], dist[tmp][i] 0,20,IMP
+tmp : 2
+visited[i], visted[tmp], dist[tmp][i] 18,20,5
+visited[i], visted[tmp], dist[tmp][i] 20,20,IMP
+visited[i], visted[tmp], dist[tmp][i] 8,20,14
+visited[i], visted[tmp], dist[tmp][i] 15,20,5
+visited[i], visted[tmp], dist[tmp][i] 0,20,IMP

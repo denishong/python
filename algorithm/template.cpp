@@ -9,7 +9,8 @@ void Solve(){
 
 }
 int main(){
-	InputData();
-	Solve();
-	return 0;
+   InputData();
+   Solve();
+   return 0;
 }
+/*[baekjoon]*/

@@ -18,7 +18,7 @@ void PrintData(){
 		printf("\n");
 }
 
-int Solve(){
+void Solve(){
 
 	int i, r, c, minr, minc, maxr,maxc, cnt = 0;
 	int check[10] = {0};
@@ -52,17 +52,12 @@ int Solve(){
 		for( i = 1; i<= 9; i++){
 			printf("check[%d] : %d \n", i, check[i]);
 		}
-	return cnt;
+	cout << cnt << endl;
 }
 
 int main(){
-	int ans = -1;
-	InputData();//	입력 함수
-
-	//	코드를 작성하세요
-	ans = Solve();
-	
-	printf("%d\n", ans);//출력 
+	InputData();
+	Solve();
 	return 0;
 }
 
