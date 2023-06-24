@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+[
+  <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+]>
+<book id="index">
+  <bookinfo>
+    <title>Entangle Reference Manual</title>
+    <releaseinfo>
+      for Entangle 0.1
+      The latest version of this documentation can be found on-line at
+      <ulink role="online-location" url="http://entangle-project.org/api/index.html">http://entangle-project.org/api/</ulink>.
+    </releaseinfo>
+  </bookinfo>
+
+  <chapter>
+    <title>Entangle Backend</title>
+    <xi:include href="xml/entangle-camera.xml"/>
+    <xi:include href="xml/entangle-camera-file.xml"/>
+    <xi:include href="xml/entangle-camera-list.xml"/>
+    <xi:include href="xml/entangle-colour-profile.xml"/>
+<!--    <xi:include href="xml/entangle-colour-profile-enums.xml"/> -->
+    <xi:include href="xml/entangle-control.xml"/>
+    <xi:include href="xml/entangle-control-button.xml"/>
+    <xi:include href="xml/entangle-control-choice.xml"/>
+    <xi:include href="xml/entangle-control-date.xml"/>
+    <xi:include href="xml/entangle-control-group.xml"/>
+    <xi:include href="xml/entangle-control-range.xml"/>
+    <xi:include href="xml/entangle-control-text.xml"/>
+    <xi:include href="xml/entangle-control-toggle.xml"/>
+    <xi:include href="xml/entangle-device-manager.xml"/>
+    <xi:include href="xml/entangle-image.xml"/>
+    <xi:include href="xml/entangle-image-loader.xml"/>
+    <xi:include href="xml/entangle-pixbuf.xml"/>
+    <xi:include href="xml/entangle-pixbuf-loader.xml"/>
+    <xi:include href="xml/entangle-preferences.xml"/>
+    <xi:include href="xml/entangle-progress.xml"/>
+    <xi:include href="xml/entangle-session.xml"/>
+    <xi:include href="xml/entangle-thumbnail-loader.xml"/>
+    <xi:include href="xml/entangle-debug.xml"/>
+  </chapter>
+  <chapter>
+    <title>Entangle Frontend</title>
+    <xi:include href="xml/entangle-application.xml"/>
+    <xi:include href="xml/entangle-camera-manager.xml"/>
+    <xi:include href="xml/entangle-camera-picker.xml"/>
+    <xi:include href="xml/entangle-camera-support.xml"/>
+    <xi:include href="xml/entangle-control-panel.xml"/>
+    <xi:include href="xml/entangle-dpms.xml"/>
+    <xi:include href="xml/entangle-help-about.xml"/>
+    <xi:include href="xml/entangle-image-display.xml"/>
+    <xi:include href="xml/entangle-image-histogram.xml"/>
+    <xi:include href="xml/entangle-media-popup.xml"/>
+    <xi:include href="xml/entangle-media-statusbar.xml"/>
+    <xi:include href="xml/entangle-preferences-display.xml"/>
+    <xi:include href="xml/entangle-session-browser.xml"/>
+  </chapter>
+  <!--
+      Re-enable once this is released *and* widely available
+      in distros:
+      https://github.com/mesonbuild/meson/pull/2332
+  <chapter id="object-tree">
+    <title>Object Hierarchy</title>
+     <xi:include href="xml/tree_index.sgml"/>
+  </chapter>
+  -->
+  <index id="api-index-full">
+    <title>API Index</title>
+    <xi:include href="xml/api-index-full.xml"><xi:fallback /></xi:include>
+  </index>
+
+  <xi:include href="xml/annotation-glossary.xml"><xi:fallback /></xi:include>
+</book>
